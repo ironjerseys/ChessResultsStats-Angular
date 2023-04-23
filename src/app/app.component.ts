@@ -9,17 +9,14 @@ import { GameService } from './services/game.service';
 })
 export class AppComponent {
   title = 'ChessGameAnalyzer.IU';
-  games: Game[] = [];
+
+  gamesResult = new Game();
 
   constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
     this.gameService
       .getGames()
-      .subscribe((result: Game[]) => (this.games = result));
+      .subscribe((result: Game) => (this.gamesResult = result));
   }
-
-  // ngOnInit(): void {
-  //   this.games = this.gameService.getGames();
-  // }
 }

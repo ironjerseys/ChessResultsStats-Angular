@@ -1,16 +1,18 @@
 <table>
   <thead>
-    <th>WhitePlayer</th>
-    <th>BlackPlayer</th>
-    <th>Result</th>
-    <th>Moves</th>
+    <th>Number of games won with White</th>
+    <th>Number of games drawn with White</th>
+    <th>Number of games lost with White</th>
+    <th>Number of games won with Black</th>
+    <th>Number of games drawn with Black</th>
+    <th>Number of games lost with Black</th>
   </thead>
   <tbody>
-    <tr *ngFor="let game of games">
-      <td>{{ game.whitePlayer }}</td>
-      <td>{{ game.blackPlayer }}</td>
-      <td>{{ game.result }}</td>
-      <td>{{ game.moves }}</td>
-    </tr>
+    <td>{{ gamesResult.numberOfGamesWonWithWhite }}</td>
+    <td>{{ gamesResult.numberOfGamesDrawnWithWhite }}</td>
+    <td>{{ gamesResult.numberOfGamesLostWithWhite }}</td>
+    <td>{{ gamesResult.numberOfGamesWonWithBlack }}</td>
+    <td>{{ gamesResult.numberOfGamesDrawnWithBlack }}</td>
+    <td>{{ gamesResult.numberOfGamesLostWithBlack }}</td>
   </tbody>
 </table>
