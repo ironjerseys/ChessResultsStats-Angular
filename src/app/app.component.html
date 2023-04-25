@@ -1,18 +1,76 @@
-<table>
-  <thead>
-    <th>Number of games won with White</th>
-    <th>Number of games drawn with White</th>
-    <th>Number of games lost with White</th>
-    <th>Number of games won with Black</th>
-    <th>Number of games drawn with Black</th>
-    <th>Number of games lost with Black</th>
-  </thead>
-  <tbody>
-    <td>{{ gamesResult.numberOfGamesWonWithWhite }}</td>
-    <td>{{ gamesResult.numberOfGamesDrawnWithWhite }}</td>
-    <td>{{ gamesResult.numberOfGamesLostWithWhite }}</td>
-    <td>{{ gamesResult.numberOfGamesWonWithBlack }}</td>
-    <td>{{ gamesResult.numberOfGamesDrawnWithBlack }}</td>
-    <td>{{ gamesResult.numberOfGamesLostWithBlack }}</td>
-  </tbody>
-</table>
+<div class="main">
+  <h1>Games playing White</h1>
+  <table class="result">
+    <thead>
+      <th>Number of games won</th>
+      <th>Number of games drawn</th>
+      <th>Number of games lost</th>
+    </thead>
+    <tbody>
+      <td class="greenNumbers">
+        {{ gamesResult.numberOfGamesWonWithWhite }} /
+        {{
+          (
+            (gamesResult.numberOfGamesWonWithWhite / totalNumberOfGames) *
+            100
+          ).toFixed(2)
+        }}%
+      </td>
+      <td class="yellowNumbers">
+        {{ gamesResult.numberOfGamesDrawnWithWhite }} /
+        {{
+          (
+            (gamesResult.numberOfGamesDrawnWithWhite / totalNumberOfGames) *
+            100
+          ).toFixed(2)
+        }}%
+      </td>
+      <td class="redNumbers">
+        {{ gamesResult.numberOfGamesLostWithWhite }} /
+        {{
+          (
+            (gamesResult.numberOfGamesLostWithWhite / totalNumberOfGames) *
+            100
+          ).toFixed(2)
+        }}%
+      </td>
+    </tbody>
+  </table>
+  <h1>Games playing Black</h1>
+  <table class="result">
+    <thead>
+      <th>Number of games won</th>
+      <th>Number of games drawn</th>
+      <th>Number of games lost</th>
+    </thead>
+    <tbody>
+      <td class="greenNumbers">
+        {{ gamesResult.numberOfGamesWonWithBlack }} /
+        {{
+          (
+            (gamesResult.numberOfGamesWonWithBlack / totalNumberOfGames) *
+            100
+          ).toFixed(2)
+        }}%
+      </td>
+      <td class="yellowNumbers">
+        {{ gamesResult.numberOfGamesDrawnWithBlack }} /
+        {{
+          (
+            (gamesResult.numberOfGamesDrawnWithBlack / totalNumberOfGames) *
+            100
+          ).toFixed(2)
+        }}%
+      </td>
+      <td class="redNumbers">
+        {{ gamesResult.numberOfGamesLostWithBlack }} /
+        {{
+          (
+            (gamesResult.numberOfGamesLostWithBlack / totalNumberOfGames) *
+            100
+          ).toFixed(2)
+        }}%
+      </td>
+    </tbody>
+  </table>
+</div>
