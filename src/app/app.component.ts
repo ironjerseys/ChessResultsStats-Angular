@@ -14,14 +14,15 @@ export class AppComponent {
   numberOfGames = 0;
   totalNumberOfGames: number = 0;
 
+  selectedValue = 'option1';
+
   constructor(private gameService: GameService) {}
 
-  ngOnInit(): void {
-    // this.gameService
-    //   .getGames()
-    //   .subscribe((result: Game) => (this.gamesResult = result));
+  ngOnInit(): void {}
 
-    this.gameService.getGames().subscribe((result) => {
+  getGames(): void {
+    // call the service
+    this.gameService.getGames(this.selectedOpening).subscribe((result) => {
       this.gamesResult = result;
       this.totalNumberOfGames =
         result.numberOfGamesWonWithWhite +
@@ -31,5 +32,12 @@ export class AppComponent {
         result.numberOfGamesDrawnWithBlack +
         result.numberOfGamesLostWithBlack;
     });
+  }
+
+  selectedOpening = '';
+  onSelected(opening: string): void {
+    this.selectedOpening = opening;
+    this.getGames();
+    console.log(this.selectedOpening);
   }
 }
