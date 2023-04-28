@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Game } from './models/game';
 import { GameService } from './services/game.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
 
   selectedValue = 'option1';
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private http: HttpClient) {}
 
   ngOnInit(): void {}
 
@@ -39,5 +40,26 @@ export class AppComponent {
     this.selectedOpening = opening;
     this.getGames();
     console.log(this.selectedOpening);
+  }
+
+  fileName = '';
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      this.fileName = file.name;
+
+      const formData = new FormData();
+
+      formData.append('file', file);
+
+      const upload$ = this.http.post(
+        'https://localhost:7170/api/upload',
+        formData
+      );
+
+      upload$.subscribe();
+    }
   }
 }

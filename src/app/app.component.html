@@ -1,3 +1,25 @@
+<div id="upload">
+  <input
+    type="file"
+    class="file-input"
+    (change)="onFileSelected($event)"
+    #fileUpload
+  />
+
+  <div class="file-upload">
+    {{ fileName || "No file uploaded yet." }}
+
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn"
+      (click)="fileUpload.click()"
+    >
+      Bouton
+    </button>
+  </div>
+</div>
+
 <select #openings (change)="onSelected(openings.value)">
   <option default>Choisir une ouverture</option>
   <option>Ecossaise</option>
