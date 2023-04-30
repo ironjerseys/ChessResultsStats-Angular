@@ -19,7 +19,9 @@ export class AppComponent {
 
   constructor(private gameService: GameService, private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getGames();
+  }
 
   getGames(): void {
     // call the service
@@ -32,7 +34,7 @@ export class AppComponent {
     });
   }
 
-  selectedOpening = '';
+  selectedOpening = 'All openings';
   onSelected(opening: string): void {
     this.selectedOpening = opening;
     this.getGames();
