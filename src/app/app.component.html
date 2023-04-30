@@ -69,27 +69,29 @@
 
     <div id="filters">
       <h2>Filters</h2>
-      <select #openings (change)="onSelected(openings.value)">
-        <option default>All openings</option>
-        <option>Scotch</option>
-        <option>Spanish</option>
-        <option>Italian</option>
-        <option>Caro-kann</option>
-        <option>Petrov</option>
-        <option>Scandinavian</option>
-        <option>Alekhine</option>
-        <option>Sicilian</option>
-        <option>Slav</option>
-        <option>e4</option>
-        <option>d4</option>
-      </select>
+      <div id="selects">
+        <select #openings (change)="onSelected(openings.value)">
+          <option default>All openings</option>
+          <option>Scotch</option>
+          <option>Spanish</option>
+          <option>Italian</option>
+          <option>Caro-kann</option>
+          <option>Petrov</option>
+          <option>Scandinavian</option>
+          <option>Alekhine</option>
+          <option>Sicilian</option>
+          <option>Slav</option>
+          <option>e4</option>
+          <option>d4</option>
+        </select>
 
-      <!-- <select #color (change)="onSelectedColor(openings.value, color.value)"> -->
-      <select>
-        <option default>All games</option>
-        <option>White</option>
-        <option>Black</option>
-      </select>
+        <!-- <select #color (change)="onSelectedColor(openings.value, color.value)"> -->
+        <select>
+          <option default>All games</option>
+          <option>White</option>
+          <option>Black</option>
+        </select>
+      </div>
     </div>
   </div>
 </div>

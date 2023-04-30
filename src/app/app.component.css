@@ -6,7 +6,8 @@ body {
 #app {
   background-color: #4b4b4b;
   color: white !important;
-  padding: 8% 0;
+  padding-top: 1%;
+  padding-bottom: 15%;
 }
 
 button {
@@ -43,6 +44,7 @@ h2 {
 
 .file-upload {
   text-align: center;
+  margin: 2%;
 }
 
 select {
@@ -57,26 +59,31 @@ select {
 
 #main {
   width: 70%;
-  margin: 2% auto;
+  margin: 5% auto;
   overflow: hidden;
+  display: flex;
+  align-items: stretch;
 }
 
 #results {
-  width: 60%; /* Définir la largeur de la div de gauche */
-  float: left; /* Placer la div de gauche à gauche */
-  margin: 2% 2% 2% 0;
+  width: 60%;
+  float: left;
   background-color: #323232;
   border-radius: 10px;
   padding: 3%;
 }
 
 #filters {
-  width: 30%; /* Définir la largeur de la div de droite */
-  float: right; /* Placer la div de droite à droite */
-  margin: 2% 0 2% 2%;
+  width: 30%;
+  float: right;
   background-color: #323232;
   border-radius: 10px;
   padding: 3%;
+  margin-left: 10%;
+}
+
+#selects {
+  margin-top: 10%;
 }
 
 .result {
