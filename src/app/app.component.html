@@ -1,112 +1,128 @@
-<div id="upload">
-  <input
-    type="file"
-    class="file-input"
-    (change)="onFileSelected($event)"
-    #fileUpload
-  />
-
-  <div class="file-upload">
-    {{ fileName || "No file uploaded yet." }}
-
-    <button
-      mat-mini-fab
-      color="primary"
-      class="upload-btn"
-      (click)="fileUpload.click()"
-    >
-      Bouton
-    </button>
+<div id="app">
+  <h1>Chess Results Analyzer</h1>
+  <div id="upload">
+    <h2>Upload your file from Chess.com</h2>
+    <input
+      type="file"
+      class="file-input"
+      (change)="onFileSelected($event)"
+      #fileUpload
+    />
+    <div class="file-upload">
+      {{ fileName || "No file selected" }}
+      <button
+        mat-mini-fab
+        color="primary"
+        class="upload-btn btn btn-primary mb-2"
+        (click)="fileUpload.click()"
+      >
+        Select a file
+      </button>
+    </div>
   </div>
-</div>
 
-<select #openings (change)="onSelected(openings.value)">
-  <option default>Choisir une ouverture</option>
-  <option>Ecossaise</option>
-  <option>Espagnole</option>
-  <option>Italienne</option>
-  <option>Caro-kann</option>
-  <option>Petrov</option>
-  <option>Scandinave</option>
-  <option>Alekhine</option>
-  <option>Sicilienne</option>
-  <option>e4</option>
-  <option>d4</option>
-</select>
+  <div id="main">
+    <div id="results">
+      <h2>Results</h2>
+      <h1>Games playing White</h1>
+      <table class="result">
+        <thead>
+          <th>Number of games won</th>
+          <th>Number of games drawn</th>
+          <th>Number of games lost</th>
+        </thead>
+        <tbody>
+          <td>
+            {{ gamesResult.numberOfGamesWonWithWhite }} /
+            {{
+              (
+                (gamesResult.numberOfGamesWonWithWhite / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </td>
+          <td>
+            {{ gamesResult.numberOfGamesDrawnWithWhite }} /
+            {{
+              (
+                (gamesResult.numberOfGamesDrawnWithWhite / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </td>
+          <td>
+            {{ gamesResult.numberOfGamesLostWithWhite }} /
+            {{
+              (
+                (gamesResult.numberOfGamesLostWithWhite / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </td>
+        </tbody>
+      </table>
+      <h1>Games playing Black</h1>
+      <table class="result">
+        <thead>
+          <th>Number of games won</th>
+          <th>Number of games drawn</th>
+          <th>Number of games lost</th>
+        </thead>
+        <tbody>
+          <td>
+            {{ gamesResult.numberOfGamesWonWithBlack }} /
+            {{
+              (
+                (gamesResult.numberOfGamesWonWithBlack / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </td>
+          <td>
+            {{ gamesResult.numberOfGamesDrawnWithBlack }} /
+            {{
+              (
+                (gamesResult.numberOfGamesDrawnWithBlack / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </td>
+          <td>
+            {{ gamesResult.numberOfGamesLostWithBlack }} /
+            {{
+              (
+                (gamesResult.numberOfGamesLostWithBlack / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </td>
+        </tbody>
+      </table>
+    </div>
 
-<div class="main">
-  <h1>Games playing White</h1>
-  <table class="result">
-    <thead>
-      <th>Number of games won</th>
-      <th>Number of games drawn</th>
-      <th>Number of games lost</th>
-    </thead>
-    <tbody>
-      <td class="greenNumbers">
-        {{ gamesResult.numberOfGamesWonWithWhite }} /
-        {{
-          (
-            (gamesResult.numberOfGamesWonWithWhite / totalNumberOfGames) *
-            100
-          ).toFixed(2)
-        }}%
-      </td>
-      <td class="yellowNumbers">
-        {{ gamesResult.numberOfGamesDrawnWithWhite }} /
-        {{
-          (
-            (gamesResult.numberOfGamesDrawnWithWhite / totalNumberOfGames) *
-            100
-          ).toFixed(2)
-        }}%
-      </td>
-      <td class="redNumbers">
-        {{ gamesResult.numberOfGamesLostWithWhite }} /
-        {{
-          (
-            (gamesResult.numberOfGamesLostWithWhite / totalNumberOfGames) *
-            100
-          ).toFixed(2)
-        }}%
-      </td>
-    </tbody>
-  </table>
-  <h1>Games playing Black</h1>
-  <table class="result">
-    <thead>
-      <th>Number of games won</th>
-      <th>Number of games drawn</th>
-      <th>Number of games lost</th>
-    </thead>
-    <tbody>
-      <td class="greenNumbers">
-        {{ gamesResult.numberOfGamesWonWithBlack }} /
-        {{
-          (
-            (gamesResult.numberOfGamesWonWithBlack / totalNumberOfGames) *
-            100
-          ).toFixed(2)
-        }}%
-      </td>
-      <td class="yellowNumbers">
-        {{ gamesResult.numberOfGamesDrawnWithBlack }} /
-        {{
-          (
-            (gamesResult.numberOfGamesDrawnWithBlack / totalNumberOfGames) *
-            100
-          ).toFixed(2)
-        }}%
-      </td>
-      <td class="redNumbers">
-        {{ gamesResult.numberOfGamesLostWithBlack }} /
-        {{
-          (
-            (gamesResult.numberOfGamesLostWithBlack / totalNumberOfGames) *
-            100
-          ).toFixed(2)
-        }}%
-      </td>
-    </tbody>
-  </table>
+    <div id="filters">
+      <h2>Filters</h2>
+      <select #openings (change)="onSelected(openings.value)">
+        <option default>All openings</option>
+        <option>Scotch</option>
+        <option>Spanish</option>
+        <option>Italian</option>
+        <option>Caro-kann</option>
+        <option>Petrov</option>
+        <option>Scandinavian</option>
+        <option>Alekhine</option>
+        <option>Sicilian</option>
+        <option>Slav</option>
+        <option>e4</option>
+        <option>d4</option>
+      </select>
+
+      <!-- <select #color (change)="onSelectedColor(openings.value, color.value)"> -->
+      <select>
+        <option default>All games</option>
+        <option>White</option>
+        <option>Black</option>
+      </select>
+    </div>
+  </div>
 </div>
