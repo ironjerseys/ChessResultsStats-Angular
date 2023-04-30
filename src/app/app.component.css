@@ -9,6 +9,16 @@ body {
   padding: 8% 0;
 }
 
+button {
+  margin: 0 2%;
+}
+
+td {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+}
+
 h1 {
   text-align: center;
   margin: 5%;
@@ -73,4 +83,30 @@ select {
   padding: 10px;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.col {
+  width: 30%;
+  margin-right: 2%;
+  margin-bottom: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.numbers {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  padding: 5%;
+  font-size: 24px;
 }

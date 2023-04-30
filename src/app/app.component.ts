@@ -26,12 +26,9 @@ export class AppComponent {
     this.gameService.getGames(this.selectedOpening).subscribe((result) => {
       this.gamesResult = result;
       this.totalNumberOfGames =
-        result.numberOfGamesWonWithWhite +
-        result.numberOfGamesDrawnWithWhite +
-        result.numberOfGamesLostWithWhite +
-        result.numberOfGamesWonWithBlack +
-        result.numberOfGamesDrawnWithBlack +
-        result.numberOfGamesLostWithBlack;
+        result.numberOfGamesWon +
+        result.numberOfGamesDrawn +
+        result.numberOfGamesLost;
     });
   }
 
