@@ -38,7 +38,6 @@ export class AppComponent {
   onSelected(opening: string): void {
     this.selectedOpening = opening;
     this.getGames();
-    console.log(this.selectedOpening);
   }
 
   fileName = '';
@@ -47,11 +46,13 @@ export class AppComponent {
     const file: File = event.target.files[0];
 
     if (file) {
-      this.fileName = file.name;
+      const newFileName = 'data.txt';
+
+      //this.fileName = file.name;
 
       const formData = new FormData();
 
-      formData.append('file', file);
+      formData.append('file', file, newFileName);
 
       const upload$ = this.http.post(
         'https://localhost:7170/api/upload',
@@ -59,6 +60,12 @@ export class AppComponent {
       );
 
       upload$.subscribe();
+      this.getGames();
+
+      // attendre 1 seconde et appeler getGames()
+      // setTimeout(() => {
+      //   this.getGames();
+      // }, 1000);
     }
   }
 }

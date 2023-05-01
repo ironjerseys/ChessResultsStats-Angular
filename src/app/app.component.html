@@ -9,7 +9,7 @@
       #fileUpload
     />
     <div class="file-upload">
-      {{ fileName || "No file selected" }}
+      <!-- {{ fileName || "No file selected" }} -->
       <button
         mat-mini-fab
         color="primary"
@@ -93,5 +93,22 @@
         </select>
       </div>
     </div>
+  </div>
+  <div id="export">
+    <h2>Export Chess Game</h2>
+    <button
+      mat-mini-fab
+      color="primary"
+      class="export-btn btn btn-primary mb-2"
+    >
+      Export to JSON
+    </button>
+    <button
+      mat-mini-fab
+      color="primary"
+      class="export-btn btn btn-primary mb-2"
+    >
+      Export to XML
+    </button>
   </div>
 </div>

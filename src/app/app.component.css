@@ -117,3 +117,16 @@ select {
   padding: 5%;
   font-size: 24px;
 }
+
+#export {
+  margin: 5% auto;
+  width: 70%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #323232;
+  text-align: center;
+}
+
+#export > button {
+  margin-bottom: 3% !important;
+}
