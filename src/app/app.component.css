@@ -7,7 +7,7 @@ body {
   background-color: #4b4b4b;
   color: white !important;
   padding-top: 1%;
-  padding-bottom: 15%;
+  padding-bottom: 1%;
 }
 
 button {
@@ -22,7 +22,7 @@ td {
 
 h1 {
   text-align: center;
-  margin: 5%;
+  margin-bottom: 2%;
 }
 
 h2 {
@@ -31,9 +31,9 @@ h2 {
 }
 
 #upload {
-  margin: 2% auto;
+  margin: 1% auto;
   width: 70%;
-  padding: 20px;
+  padding: 1px;
   border-radius: 10px;
   background-color: #323232;
 }
@@ -59,7 +59,7 @@ select {
 
 #main {
   width: 70%;
-  margin: 5% auto;
+  margin: 2% auto;
   overflow: hidden;
   display: flex;
   align-items: stretch;
@@ -87,7 +87,6 @@ select {
 }
 
 .result {
-  padding: 10px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -119,9 +118,9 @@ select {
 }
 
 #export {
-  margin: 5% auto;
+  margin: 1% auto;
   width: 70%;
-  padding: 20px;
+  padding: 1px;
   border-radius: 10px;
   background-color: #323232;
   text-align: center;

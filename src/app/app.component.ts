@@ -48,8 +48,6 @@ export class AppComponent {
     if (file) {
       const newFileName = 'data.txt';
 
-      //this.fileName = file.name;
-
       const formData = new FormData();
 
       formData.append('file', file, newFileName);
@@ -61,11 +59,28 @@ export class AppComponent {
 
       upload$.subscribe();
       this.getGames();
-
-      // attendre 1 seconde et appeler getGames()
-      // setTimeout(() => {
-      //   this.getGames();
-      // }, 1000);
     }
+  }
+
+  downloadJson() {
+    const link = document.createElement('a');
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', 'assets/data.json');
+    link.setAttribute('download', 'data.json');
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    console.log(link.href);
+  }
+
+  downloadXml() {
+    const link = document.createElement('a');
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', 'assets/data.xml');
+    link.setAttribute('download', 'data.xml');
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    console.log(link.href);
   }
 }
