@@ -70,7 +70,7 @@
     <div id="filters">
       <h2>Filters</h2>
       <div id="selects">
-        <select #openings (change)="onSelected(openings.value)">
+        <select #openings (change)="onOpeningSelected(openings.value)">
           <option default>All openings</option>
           <option>Scotch</option>
           <option>Spanish</option>
@@ -86,8 +86,8 @@
         </select>
 
         <!-- <select #color (change)="onSelectedColor(openings.value, color.value)"> -->
-        <select>
-          <option default>All games</option>
+        <select #colors (change)="onColorSelected(colors.value)">
+          <option default>All</option>
           <option>White</option>
           <option>Black</option>
         </select>

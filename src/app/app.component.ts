@@ -25,18 +25,26 @@ export class AppComponent {
 
   getGames(): void {
     // call the service
-    this.gameService.getGames(this.selectedOpening).subscribe((result) => {
-      this.gamesResult = result;
-      this.totalNumberOfGames =
-        result.numberOfGamesWon +
-        result.numberOfGamesDrawn +
-        result.numberOfGamesLost;
-    });
+    this.gameService
+      .getGames(this.selectedOpening, this.selectedColor)
+      .subscribe((result) => {
+        this.gamesResult = result;
+        this.totalNumberOfGames =
+          result.numberOfGamesWon +
+          result.numberOfGamesDrawn +
+          result.numberOfGamesLost;
+      });
   }
 
   selectedOpening = 'All openings';
-  onSelected(opening: string): void {
+  onOpeningSelected(opening: string): void {
     this.selectedOpening = opening;
+    this.getGames();
+  }
+
+  selectedColor = 'All';
+  onColorSelected(color: string): void {
+    this.selectedColor = color;
     this.getGames();
   }
 
