@@ -85,11 +85,18 @@
           <option>d4</option>
         </select>
 
-        <!-- <select #color (change)="onSelectedColor(openings.value, color.value)"> -->
         <select #colors (change)="onColorSelected(colors.value)">
-          <option default>All</option>
+          <option default>All colors</option>
           <option>White</option>
           <option>Black</option>
+        </select>
+
+        <select #endgame (change)="onEndgameSelected(endgame.value)">
+          <option default>All end of game</option>
+          <option>Checkmate</option>
+          <option>Resignation</option>
+          <option>Draw</option>
+          <option>Time</option>
         </select>
       </div>
     </div>

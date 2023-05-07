@@ -42,14 +42,13 @@ h2 {
 }
 
 select {
-  width: 50%;
+  width: 70%;
   padding: 10px;
   margin: 5% auto;
   display: block;
   border-radius: 4px;
   background-color: #ffc107;
   color: white;
-  width: 60%;
   font-weight: 600;
   font-size: large;
 }
@@ -63,7 +62,7 @@ select {
 }
 
 #results {
-  width: 60%;
+  width: 65%;
   float: left;
   background-color: #323232;
   border-radius: 10px;
@@ -71,12 +70,12 @@ select {
 }
 
 #filters {
-  width: 30%;
+  width: 35%;
   float: right;
   background-color: #323232;
   border-radius: 10px;
   padding: 3%;
-  margin-left: 10%;
+  margin-left: 4%;
 }
 
 #selects {

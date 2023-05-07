@@ -26,7 +26,7 @@ export class AppComponent {
   getGames(): void {
     // call the service
     this.gameService
-      .getGames(this.selectedOpening, this.selectedColor)
+      .getGames(this.selectedOpening, this.selectedColor, this.selectedEndgame)
       .subscribe((result) => {
         this.gamesResult = result;
         this.totalNumberOfGames =
@@ -42,9 +42,15 @@ export class AppComponent {
     this.getGames();
   }
 
-  selectedColor = 'All';
+  selectedColor = 'All colors';
   onColorSelected(color: string): void {
     this.selectedColor = color;
+    this.getGames();
+  }
+
+  selectedEndgame = 'All end of game';
+  onEndgameSelected(endgame: string): void {
+    this.selectedEndgame = endgame;
     this.getGames();
   }
 
