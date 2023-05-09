@@ -1,25 +1,6 @@
 <div id="app">
   <h1>Chess Results Analyzer</h1>
-  <div id="upload">
-    <h2>Upload your file from Chess.com</h2>
-    <input
-      type="file"
-      class="file-input"
-      (change)="onFileSelected($event)"
-      #fileUpload
-    />
-    <div class="file-upload">
-      <!-- {{ fileName || "No file selected" }} -->
-      <button
-        mat-mini-fab
-        color="primary"
-        class="upload-btn btn btn-primary mb-2"
-        (click)="fileUpload.click()"
-      >
-        Select a file
-      </button>
-    </div>
-  </div>
+  <app-upload-file></app-upload-file>
 
   <div id="main">
     <div id="results">
@@ -101,24 +82,6 @@
       </div>
     </div>
   </div>
-  <div id="export">
-    <h2>Export Chess Game</h2>
 
-    <button
-      (click)="downloadJson()"
-      mat-mini-fab
-      color="primary"
-      class="export-btn btn btn-primary mb-2"
-    >
-      Export to JSON
-    </button>
-    <button
-      (click)="downloadXml()"
-      mat-mini-fab
-      color="primary"
-      class="export-btn btn btn-primary mb-2"
-    >
-      Export to XML
-    </button>
-  </div>
+  <app-export-file></app-export-file>
 </div>

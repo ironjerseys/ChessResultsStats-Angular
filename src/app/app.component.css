@@ -24,23 +24,6 @@ h2 {
   margin: 2%;
 }
 
-#upload {
-  margin: 1% auto;
-  width: 70%;
-  padding: 1px;
-  border-radius: 10px;
-  background-color: #323232;
-}
-
-.file-input {
-  display: none;
-}
-
-.file-upload {
-  text-align: center;
-  margin: 1%;
-}
-
 select {
   width: 70%;
   padding: 10px;
@@ -125,17 +108,4 @@ select {
   color: white;
   padding: 5%;
   font-size: 24px;
-}
-
-#export {
-  margin: 1% auto;
-  width: 70%;
-  padding: 1px;
-  border-radius: 10px;
-  background-color: #323232;
-  text-align: center;
-}
-
-#export > button {
-  margin-bottom: 2% !important;
 }

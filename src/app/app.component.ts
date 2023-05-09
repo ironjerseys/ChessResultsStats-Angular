@@ -53,48 +53,4 @@ export class AppComponent {
     this.selectedEndgame = endgame;
     this.getGames();
   }
-
-  fileName = '';
-
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-
-    if (file) {
-      const newFileName = 'data.txt';
-
-      const formData = new FormData();
-
-      formData.append('file', file, newFileName);
-
-      const upload$ = this.http.post(
-        'https://localhost:7170/api/upload',
-        formData
-      );
-
-      upload$.subscribe();
-      this.getGames();
-    }
-  }
-
-  downloadJson() {
-    const link = document.createElement('a');
-    link.setAttribute('target', '_blank');
-    link.setAttribute('href', 'assets/data.json');
-    link.setAttribute('download', 'data.json');
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    console.log(link.href);
-  }
-
-  downloadXml() {
-    const link = document.createElement('a');
-    link.setAttribute('target', '_blank');
-    link.setAttribute('href', 'assets/data.xml');
-    link.setAttribute('download', 'data.xml');
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    console.log(link.href);
-  }
 }

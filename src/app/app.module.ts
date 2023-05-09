@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ExportFileComponent } from './export-file/export-file.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ExportFileComponent, UploadFileComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

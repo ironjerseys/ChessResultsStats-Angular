@@ -1,0 +1,20 @@
+<div id="upload">
+  <h2>Upload your file from Chess.com</h2>
+  <input
+    type="file"
+    class="file-input"
+    (change)="onFileSelected($event)"
+    #fileUpload
+  />
+  <div class="file-upload">
+    <!-- {{ fileName || "No file selected" }} -->
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn btn btn-primary mb-2"
+      (click)="fileUpload.click()"
+    >
+      Select a file
+    </button>
+  </div>
+</div>
