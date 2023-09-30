@@ -1,0 +1,7 @@
+.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: #252525 !important;
+  color: white !important;
+  height: 5em;
+  margin-bottom: 1em;
+}

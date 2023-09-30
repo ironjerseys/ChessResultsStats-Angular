@@ -11,6 +11,7 @@ export class GameService {
   private url = 'Game';
   constructor(private http: HttpClient) {}
 
+  // API call
   public getGames(
     opening: string,
     color: string,

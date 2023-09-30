@@ -19,6 +19,7 @@ export class AppComponent {
 
   constructor(private gameService: GameService, private http: HttpClient) {}
 
+  // at the launch of the app
   ngOnInit(): void {
     this.getGames();
   }
