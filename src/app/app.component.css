@@ -1,13 +1,8 @@
-body {
-  background-color: grey !important;
-  color: white !important;
-}
-
 #app {
-  background-color: #4b4b4b;
   color: white !important;
   padding-top: 1%;
   padding-bottom: 1%;
+  height: 100%;
 }
 
 button {
