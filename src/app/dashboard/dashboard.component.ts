@@ -38,10 +38,10 @@ export class UploadFileComponent {
         formData
       );
 
-      alert(upload$);
-      console.log(upload$);
-
-      upload$.subscribe();
+      upload$.subscribe(() => {
+        // After l'upload OK, we call getGames()
+        this.getGames();
+      });
     }
   }
 
