@@ -1,0 +1,102 @@
+<h1>Dashboard</h1>
+<div id="upload">
+  <h2>Upload your file from Chess.com</h2>
+  <input
+    type="file"
+    class="file-input"
+    (change)="onFileSelected($event)"
+    #fileUpload
+  />
+  <div class="file-upload">
+    <!-- {{ fileName || "No file selected" }} -->
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn btn btn-primary mb-2"
+      (click)="fileUpload.click()"
+    >
+      Select a file
+    </button>
+  </div>
+</div>
+
+<div id="main">
+  <div id="results">
+    <h2>Results</h2>
+
+    <div class="result">
+      <div class="row">
+        <div class="col">
+          <p>Games won</p>
+          <p class="numbersWin">
+            {{ gamesResult.numberOfGamesWon }} /
+            {{
+              (
+                (gamesResult.numberOfGamesWon / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </p>
+        </div>
+        <div class="col">
+          <p>Games drawn</p>
+          <p class="numbersDraw">
+            {{ gamesResult.numberOfGamesDrawn }} /
+            {{
+              (
+                (gamesResult.numberOfGamesDrawn / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </p>
+        </div>
+        <div class="col">
+          <p>Games lost</p>
+          <p class="numbersLose">
+            {{ gamesResult.numberOfGamesLost }} /
+            {{
+              (
+                (gamesResult.numberOfGamesLost / totalNumberOfGames) *
+                100
+              ).toFixed(2)
+            }}%
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="filters">
+    <h2>Filters</h2>
+    <div id="selects">
+      <select #openings (change)="onOpeningSelected(openings.value)">
+        <option default>All openings</option>
+        <option>Scotch</option>
+        <option>Spanish</option>
+        <option>Italian</option>
+        <option>Caro-kann</option>
+        <option>Petrov</option>
+        <option>Scandinavian</option>
+        <option>Alekhine</option>
+        <option>Sicilian</option>
+        <option>Slav</option>
+        <option>e4</option>
+        <option>d4</option>
+      </select>
+
+      <select #colors (change)="onColorSelected(colors.value)">
+        <option default>All colors</option>
+        <option>White</option>
+        <option>Black</option>
+      </select>
+
+      <select #endgame (change)="onEndgameSelected(endgame.value)">
+        <option default>All end of game</option>
+        <option>Checkmate</option>
+        <option>Resignation</option>
+        <option>Draw</option>
+        <option>Time</option>
+      </select>
+    </div>
+  </div>
+</div>
