@@ -42,8 +42,6 @@ export class UploadFileComponent {
       console.log(upload$);
 
       upload$.subscribe();
-
-      this.getGames();
     }
   }
 
