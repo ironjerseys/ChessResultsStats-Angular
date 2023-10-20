@@ -34,7 +34,7 @@ export class UploadFileComponent {
       formData.append('file', file, newFileName);
 
       const upload$ = this.http.post(
-        'https://localhost:7170/api/upload',
+        'http://127.0.0.1:8080/api/upload',
         formData
       );
 
@@ -47,32 +47,9 @@ export class UploadFileComponent {
 
   getGames(): void {
     // call the service
-    this.gameService
-      .getGames(this.selectedOpening, this.selectedColor, this.selectedEndgame)
-      .subscribe((result) => {
-        this.gamesResult = result;
-        this.totalNumberOfGames =
-          result.numberOfGamesWon +
-          result.numberOfGamesDrawn +
-          result.numberOfGamesLost;
-      });
-  }
-
-  selectedOpening = 'All openings';
-  onOpeningSelected(opening: string): void {
-    this.selectedOpening = opening;
-    this.getGames();
-  }
-
-  selectedColor = 'All colors';
-  onColorSelected(color: string): void {
-    this.selectedColor = color;
-    this.getGames();
-  }
-
-  selectedEndgame = 'All end of game';
-  onEndgameSelected(endgame: string): void {
-    this.selectedEndgame = endgame;
-    this.getGames();
+    this.gameService.getGames().subscribe((result) => {
+      this.gamesResult = result;
+      console.log(result);
+    });
   }
 }

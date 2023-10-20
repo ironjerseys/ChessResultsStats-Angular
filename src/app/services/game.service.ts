@@ -8,17 +8,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class GameService {
-  private url = 'Game';
   constructor(private http: HttpClient) {}
 
   // API call
-  public getGames(
-    opening: string,
-    color: string,
-    endgame: string
-  ): Observable<Game> {
-    return this.http.get<Game>(
-      `${environment.apiUrl}/${this.url}?opening=${opening}&color=${color}&endgame=${endgame}`
-    );
+  public getGames(): Observable<Game> {
+    return this.http.get<Game>(`${environment.apiUrl}`);
   }
 }
