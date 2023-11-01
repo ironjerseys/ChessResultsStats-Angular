@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, UploadFileComponent, NavbarComponent, DashboardComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    UploadFileComponent,
+    NavbarComponent,
+    DashboardComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
