@@ -10,6 +10,9 @@ cd LinqProject-Angular
 
 ```
 npm install
+```
+
+```
 npm run start
 ```
 
