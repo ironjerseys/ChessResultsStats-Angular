@@ -1,5 +1,5 @@
 {
-  "name": "chess-game-analyzer.iu",
+  "name": "chess-results-stats",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
