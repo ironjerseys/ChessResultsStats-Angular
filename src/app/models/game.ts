@@ -2,6 +2,7 @@ export class Game {
   event: string = '';
   site: string = '';
   date: string = '';
+  round: string = '';
   white: string = '';
   black: string = '';
   result: string = '';
@@ -11,5 +12,8 @@ export class Game {
   endtime: string = '';
   termination: string = '';
   moves: string = '';
+  playerusername: string = '';
+  resultForPlayer: string = '';
+  endOfGameBy: string = '';
   dateandtime: string = '';
 }
