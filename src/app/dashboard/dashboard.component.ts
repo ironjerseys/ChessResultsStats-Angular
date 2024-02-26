@@ -11,9 +11,11 @@ import { Game } from '../models/game';
 export class DashboardComponent {
   apiData: any;
   username: string = '';
-  winningGamesList: any[] = [];
 
-  eloChart: any = null;
+  eloBulletChart: any = null;
+  eloBlitzChart: any = null;
+  eloRapidChart: any = null;
+
   accuracyChart: any = null;
 
   constructor(private http: HttpClient) {}
@@ -27,8 +29,6 @@ export class DashboardComponent {
       return;
     }
 
-    // const apiUrl = `https://api.chess.com/pub/player/${this.username}/games/2023/10`;
-
     const apiUrl =
       'https://chessresultsstatsbackendjava.azurewebsites.net/games';
 
@@ -37,50 +37,76 @@ export class DashboardComponent {
         console.log(data);
         this.apiData = data;
 
-        const ratings = data.map((game: Game) => {
-          const date = game.date; // Assurez-vous que le format de date correspond à celui attendu par vos graphiques
-          const rating =
-            game.playerusername.toLowerCase() === this.username.toLowerCase()
-              ? game.whiteelo
-              : game.blackelo;
-          return { date, rating };
-        });
+        // Filter and prepare data for each chart
+        const filterRatings = (timeControls: string[]) =>
+          data
+            .filter((game: Game) => timeControls.includes(game.timecontrol))
+            .map((game: Game) => {
+              const date = game.date;
+              const rating =
+                game.playerusername.toLowerCase() ===
+                this.username.toLowerCase()
+                  ? game.whiteelo
+                  : game.blackelo;
+              return { date, rating };
+            });
 
-        this.updateEloChart(ratings);
-        // this.updateAccuracyChart(accuracies);
+        // Bullet
+        const bulletRatings = filterRatings(['60', '60+1', '120+1']);
+        this.updateEloChart(
+          bulletRatings,
+          'eloBulletChart',
+          'ELO Bullet Rating',
+          'blue'
+        );
 
-        // Filtrer les parties gagnées où le joueur a gagné
-        // this.winningGamesList = data.games.filter(
-        //   (game: any) =>
-        //     (game.white.result === 'win' &&
-        //       game.white.username.toLowerCase() === this.username) ||
-        //     (game.black.result === 'win' &&
-        //       game.black.username.toLowerCase() === this.username)
-        // );
+        // Blitz
+        const blitzRatings = filterRatings(['180', '180+2', '300']);
+        this.updateEloChart(
+          blitzRatings,
+          'eloBlitzChart',
+          'ELO Blitz Rating',
+          'green'
+        );
+
+        // Rapid
+        const rapidRatings = filterRatings(['600', '900+10', '1800']);
+        this.updateEloChart(
+          rapidRatings,
+          'eloRapidChart',
+          'ELO Rapid Rating',
+          'red'
+        );
+
+        //this.updateEloChart(ratings);
       },
     });
   }
 
   getNumberOfGames(): number {
-    // return this.apiData ? this.apiData.games.length : 0;
     return this.apiData ? this.apiData.length : 0;
   }
 
-  updateEloChart(ratings: any[]) {
-    const ctxElo = document.getElementById('eloChart') as HTMLCanvasElement;
-    if (this.eloChart) {
-      this.eloChart.destroy();
+  updateEloChart(
+    ratings: any[],
+    chartRef: 'eloBulletChart' | 'eloBlitzChart' | 'eloRapidChart',
+    label: string,
+    borderColor: string
+  ) {
+    const ctx = document.getElementById(chartRef) as HTMLCanvasElement;
+    if (this[chartRef]) {
+      this[chartRef].destroy();
     }
 
-    this.eloChart = new Chart(ctxElo, {
+    this[chartRef] = new Chart(ctx, {
       type: 'line',
       data: {
         labels: ratings.map((item) => item.date),
         datasets: [
           {
-            label: 'ELO Rating',
+            label: label,
             data: ratings.map((item) => item.rating),
-            borderColor: 'blue',
+            borderColor: borderColor,
             borderWidth: 2,
             fill: false,
           },

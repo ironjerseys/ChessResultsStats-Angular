@@ -8,6 +8,25 @@
   width: 70%;
 }
 
+h2 {
+  margin: 40px 0px 50px 0px;
+}
+
 .main {
   text-align: center;
+  margin: 20px;
+}
+
+#username {
+  margin: 10px;
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-around; /* distribue l'espace uniformément entre les éléments */
+  align-items: center; /* centre les éléments verticalement */
+}
+
+.charts-container > div {
+  flex: 1; /* Cela permet à chaque div de prendre une part égale de l'espace disponible */
 }

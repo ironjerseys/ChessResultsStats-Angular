@@ -1,6 +1,6 @@
 <div class="main">
   <form (ngSubmit)="getDataFromApi()">
-    <label for="username">Enter your username:</label>
+    <label for="username">Enter your username :</label>
     <input
       type="text"
       id="username"
@@ -12,8 +12,7 @@
   </form>
 
   <div class="topResults">
-    <h1>Welcome</h1>
-    <h2>Number of your games: {{ getNumberOfGames() }}</h2>
+    <h2>Number of your games : {{ getNumberOfGames() }}</h2>
     <!-- <h2>Number of Won Games: {{ winningGamesList.length }}</h2> -->
   </div>
 
@@ -29,8 +28,15 @@
     <p>Games Rapid (600):</p>
   </div> -->
 
-  <div>
-    <canvas id="eloChart"></canvas>
-    <canvas id="accuracyChart"></canvas>
+  <div class="charts-container">
+    <div>
+      <canvas id="eloBulletChart"></canvas>
+    </div>
+    <div>
+      <canvas id="eloBlitzChart"></canvas>
+    </div>
+    <div>
+      <canvas id="eloRapidChart"></canvas>
+    </div>
   </div>
 </div>
