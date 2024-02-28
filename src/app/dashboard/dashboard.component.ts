@@ -31,6 +31,7 @@ export class DashboardComponent {
 
     const apiUrl =
       'https://chessresultsstatsbackendjava.azurewebsites.net/games';
+    //'http://localhost:8080/games';
 
     this.http.get<Game[]>(apiUrl).subscribe({
       next: (data) => {
@@ -57,7 +58,7 @@ export class DashboardComponent {
           bulletRatings,
           'eloBulletChart',
           'ELO Bullet Rating',
-          'blue'
+          '#0000b3'
         );
 
         // Blitz
@@ -109,6 +110,7 @@ export class DashboardComponent {
             borderColor: borderColor,
             borderWidth: 2,
             fill: false,
+            pointRadius: 0,
           },
         ],
       },
