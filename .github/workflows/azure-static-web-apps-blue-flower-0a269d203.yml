@@ -34,7 +34,7 @@ jobs:
 
       # Build the Angular app in production mode
       - name: Build Angular app
-        run: npm run build -- --prod
+        run: npm run build -- --configuration production
 
 #####################################################      
 
