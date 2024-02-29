@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Game } from '../models/game';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +11,8 @@ export class GameService {
   constructor(private http: HttpClient) {}
 
   // API call
-  public getGames(): Observable<Game> {
-    return this.http.get<Game>(`${environment.apiUrl}`);
+  public getGames(username: string): Observable<Game[]> {
+    const params = new HttpParams().set('username', username);
+    return this.http.get<Game[]>(`${environment.chessComApiUrl}`, { params });
   }
 }

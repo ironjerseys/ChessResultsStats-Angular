@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Chart from 'chart.js/auto';
 import { Game } from '../models/game';
+import { environment } from '../../environments/environment';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,22 +20,22 @@ export class DashboardComponent {
 
   accuracyChart: any = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private gameService: GameService) {}
 
   ngOnInit() {
     this.getDataFromApi();
   }
 
+  getNumberOfGames(): number {
+    return this.apiData ? this.apiData.length : 0;
+  }
+
   getDataFromApi() {
+    console.log(this.username);
     if (this.username == '') {
       return;
     }
-
-    const apiUrl =
-      'https://chessresultsstatsbackendjava.azurewebsites.net/games';
-    //'http://localhost:8080/games';
-
-    this.http.get<Game[]>(apiUrl).subscribe({
+    this.gameService.getGames(this.username).subscribe({
       next: (data) => {
         console.log(data);
         this.apiData = data;
@@ -78,14 +80,8 @@ export class DashboardComponent {
           'ELO Rapid Rating',
           'red'
         );
-
-        //this.updateEloChart(ratings);
       },
     });
-  }
-
-  getNumberOfGames(): number {
-    return this.apiData ? this.apiData.length : 0;
   }
 
   updateEloChart(
