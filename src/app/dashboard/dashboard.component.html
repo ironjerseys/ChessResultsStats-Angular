@@ -13,29 +13,19 @@
 
   <div class="topResults">
     <h2>Number of your games : {{ getNumberOfGames() }}</h2>
-    <!-- <h2>Number of Won Games: {{ winningGamesList.length }}</h2> -->
   </div>
-
-  <!-- <div class="bulletResults">
-    <p>Games Bullet (60, 60+1, 120+1):</p>
-  </div>
-
-  <div class="blitzResults">
-    <p>Games Blitz (180):</p>
-  </div>
-
-  <div class="rapidResults">
-    <p>Games Rapid (600):</p>
-  </div> -->
 
   <div class="charts-container">
     <div>
+      <h2>Games Bullet (1, 1+1, 2+1)</h2>
       <canvas id="eloBulletChart"></canvas>
     </div>
     <div>
+      <h2>Games Blitz (3, 3+2, 5)</h2>
       <canvas id="eloBlitzChart"></canvas>
     </div>
     <div>
+      <h2>Games Rapid (10)</h2>
       <canvas id="eloRapidChart"></canvas>
     </div>
   </div>

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import Chart from 'chart.js/auto';
 import { Game } from '../models/game';
-import { environment } from '../../environments/environment';
 import { GameService } from '../services/game.service';
 
 @Component({
