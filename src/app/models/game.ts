@@ -16,4 +16,7 @@ export class Game {
   resultForPlayer: string = '';
   endOfGameBy: string = '';
   dateandtime: string = '';
+  accuracy: number = 0;
+  playerelo: number = 0;
+  opening: string = '';
 }

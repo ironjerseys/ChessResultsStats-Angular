@@ -12,6 +12,10 @@ h2 {
   margin: 40px 0px 50px 0px;
 }
 
+h3 {
+  margin: 40px 0px 50px 0px;
+}
+
 .main {
   text-align: center;
   margin: 20px;
@@ -19,14 +23,46 @@ h2 {
 
 #username {
   margin: 10px;
+  border-radius: 10px; 
+  border: none; 
+  padding: 10px 20px; 
 }
 
 .charts-container {
   display: flex;
-  justify-content: space-around; /* distribue l'espace uniformément entre les éléments */
-  align-items: center; /* centre les éléments verticalement */
+  justify-content: space-around; /* same space between elements */
+  align-items: center; /* to center verticaly */
+  width: 60%;
+  margin: 0 auto;
 }
 
 .charts-container > div {
-  flex: 1; /* Cela permet à chaque div de prendre une part égale de l'espace disponible */
+  flex: 1; /* every div take the same space from available space */
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  background-color: #59a571; 
+  color: white; 
+  border: none; 
+  border-radius: 10px; 
+  padding: 10px 20px; 
+  margin: 0 10px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+  width: 150px;
+}
+
+.view-selector button:hover {
+  background-color: #417b4b; 
+}
+
+/* currently active button */
+.view-selector button.active {
+  background-color: #3e6f47; 
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
 }

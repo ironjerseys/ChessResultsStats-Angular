@@ -15,18 +15,57 @@
     <h2>Number of your games : {{ getNumberOfGames() }}</h2>
   </div>
 
+  <div class="view-selector">
+    <button type="button" (click)="switchView('bullet')" [class.active]="currentView === 'bullet'">Bullet</button>
+    <button type="button" (click)="switchView('blitz')" [class.active]="currentView === 'blitz'">Blitz</button>
+    <button type="button" (click)="switchView('rapid')" [class.active]="currentView === 'rapid'">Rapid</button>
+  </div>
+  
+
+  
+
+
+
   <div class="charts-container">
-    <div>
+    <div [class.hidden]="currentView !== 'bullet'" class="bullet">
       <h2>Games Bullet (1, 1+1, 2+1)</h2>
-      <canvas id="eloBulletChart"></canvas>
+      <div class="bullet">
+        <h3>Elo</h3>
+        <canvas id="eloBulletChart"></canvas>
+      </div>
+      <div class="bullet">
+        <h3>Accuracy</h3>
+        <canvas id="accuracyBulletChart"></canvas>
+      </div>
     </div>
-    <div>
+
+    <div [class.hidden]="currentView !== 'blitz'" class="blitz">
       <h2>Games Blitz (3, 3+2, 5)</h2>
-      <canvas id="eloBlitzChart"></canvas>
+      <div class="blitz">
+        <h3>Elo</h3>
+        <canvas id="eloBlitzChart"></canvas>
+      </div>
+      <div class="blitz">
+        <h3>Accuracy</h3>
+        <canvas id="accuracyBlitzChart"></canvas>
+      </div>
     </div>
-    <div>
+
+    <div [class.hidden]="currentView !== 'rapid'" class="rapid">
       <h2>Games Rapid (10)</h2>
-      <canvas id="eloRapidChart"></canvas>
+      <div class="rapid">
+        <h3>Elo</h3>
+        <canvas id="eloRapidChart"></canvas>
+      </div>
+      <div class="rapid">
+        <h3>Accuracy</h3>
+        <canvas id="accuracyRapidChart"></canvas>
+      </div>
     </div>
   </div>
+  
+
+
+
+
 </div>
