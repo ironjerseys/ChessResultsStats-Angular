@@ -1,7 +1,7 @@
 export class Game {
   event: string = '';
   site: string = '';
-  date: string = '';
+  date: Date;
   round: string = '';
   white: string = '';
   black: string = '';
@@ -19,4 +19,11 @@ export class Game {
   accuracy: number = 0;
   playerelo: number = 0;
   opening: string = '';
+  eco: string = '';
+
+
+  constructor() {
+    this.date = new Date();
+  }
+
 }

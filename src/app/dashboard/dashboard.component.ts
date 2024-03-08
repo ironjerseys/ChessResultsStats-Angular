@@ -49,11 +49,7 @@ export class DashboardComponent {
             .filter((game: Game) => timeControls.includes(game.timecontrol))
             .map((game: Game) => {
               const date = game.date;
-              const rating =
-                game.playerusername.toLowerCase() ===
-                this.username.toLowerCase()
-                  ? game.whiteelo
-                  : game.blackelo;
+              const rating = game.playerelo;
               return { date, rating };
             });
 
@@ -84,10 +80,10 @@ export class DashboardComponent {
           'red'
         );
 
-          // Filter and prepare data for each chart
+        // Filter and prepare data for each chart
         const filterAccuracies = (timeControls: string[]) =>
         data
-          .filter((game: Game) => timeControls.includes(game.timecontrol))
+          .filter((game: Game) => timeControls.includes(game.timecontrol) && game.accuracy && game.accuracy > 0)
           .map((game: Game) => {
             const date = game.date;
             const accuracy = game.accuracy;
@@ -136,14 +132,15 @@ export class DashboardComponent {
       this[chartRef].destroy();
     }
 
+    
     this[chartRef] = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ratings.map((item) => item.date),
+        labels: ratings.map(item => item.date),
         datasets: [
           {
             label: label,
-            data: ratings.map((item) => item.rating),
+            data: ratings.map(item => item.rating),
             borderColor: borderColor,
             borderWidth: 2,
             fill: false,
