@@ -144,20 +144,26 @@ export class DashboardComponent {
   }
 
   calculateOpeningsAccuracies(games : Game[]) {
-    const openingsAccuracies = games.reduce((acc: {[key: string]: {sum: number, count: number}}, game: Game) => {      
-      if (!acc[game.opening]) {
-        acc[game.opening] = { sum: 0, count: 0 };
+    const openingsAccuracies = games.reduce((acc: any, game: any) => {      
+      const key = `${game.opening} (${game.eco})`; // Utilisez une clé combinée de l'ouverture et de l'ECO
+      if (!acc[key]) {
+        acc[key] = { sum: 0, count: 0, eco: game.eco };
       }
-      acc[game.opening].sum += game.accuracy;
-      acc[game.opening].count += 1;
-      return acc;
-    }, {});
+
+      acc[key].sum += game.accuracy;
+        acc[key].count += 1;
+        return acc;
+      }, {});
   
-    return Object.entries(openingsAccuracies).map(([opening, data]) => ({
-      opening,
-      averageAccuracy: data.sum / data.count
-    }));
-  }
+      return Object.entries(openingsAccuracies).map(([key, data]: [string, any]) => {
+        const [opening, eco] = key.split(" ("); // Séparer la clé pour récupérer l'ouverture et l'ECO
+        return {
+          opening: opening.trim(),
+          averageAccuracy: data.sum / data.count,
+          eco: eco.slice(0, -1) // Retirer la parenthèse fermante de l'ECO
+        };
+      });
+    }
 
 
 
@@ -246,25 +252,14 @@ export class DashboardComponent {
     });
   }
 
-  displayOpeningsAccuracyChart(averageAccuracies : any) {
-
-    const canvas = document.getElementById('openingsAccuracyChart') as HTMLCanvasElement;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      // Gérer le cas où le contexte n'est pas disponible
-      console.error('Unable to get the context of the canvas');
-      return;
-    }
-
-    if (this.openingsAccuracyChart) {
-      this.openingsAccuracyChart.destroy(); // Détruire le graphique existant si nécessaire
-    }
-  
+  displayOpeningsAccuracyChart(averageAccuracies: any) {
+    const ctx = document.getElementById('openingsAccuracyChart') as HTMLCanvasElement;
+    if (this.openingsAccuracyChart) this.openingsAccuracyChart.destroy(); // Détruire le graphique existant si nécessaire
+    
     this.openingsAccuracyChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: averageAccuracies.map((a: any) => a.opening),
+        labels: averageAccuracies.map((a: any) => `${a.opening} (${a.eco})`), // Afficher à la fois l'ouverture et l'ECO dans les étiquettes
         datasets: [{
           label: 'Average Accuracy per Opening',
           data: averageAccuracies.map((a: any) => a.averageAccuracy),
