@@ -23,6 +23,8 @@ export class DashboardComponent {
   accuracyBlitzChart: any = null;
   accuracyRapidChart: any = null;
 
+  openingsAccuracyChart: Chart | undefined;
+
   constructor(private gameService: GameService) {}
 
   ngOnInit() {
@@ -90,7 +92,7 @@ export class DashboardComponent {
             return { date, accuracy };
           });
 
-          // Bullet
+        // Bullet
         const bulletAccuracies = filterAccuracies(['60', '60+1', '120+1']);
         this.updateAccuracyChart(
           bulletAccuracies,
@@ -117,9 +119,47 @@ export class DashboardComponent {
           '#0000b3'
         );
 
+        const allGames = data.filter(game => game.accuracy && game.accuracy > 0);
+        const averageAccuracies = this.calculateOpeningsAccuracies(allGames);
+        this.displayOpeningsAccuracyChart(averageAccuracies);
+
+        // const showOpeningsAccuracies = (timeControls: string[]) =>
+        // data
+        //   .filter((game: Game) => timeControls.includes(game.timecontrol) && game.accuracy && game.accuracy > 0)
+        //   .map((game: Game) => {
+        //     const opening = game.opening;
+        //     const accuracy = game.accuracy;
+        //     return { opening, accuracy };
+        //   });
+
+        
+
+          
+
+
+
+
       },
     });
   }
+
+  calculateOpeningsAccuracies(games : Game[]) {
+    const openingsAccuracies = games.reduce((acc: {[key: string]: {sum: number, count: number}}, game: Game) => {      
+      if (!acc[game.opening]) {
+        acc[game.opening] = { sum: 0, count: 0 };
+      }
+      acc[game.opening].sum += game.accuracy;
+      acc[game.opening].count += 1;
+      return acc;
+    }, {});
+  
+    return Object.entries(openingsAccuracies).map(([opening, data]) => ({
+      opening,
+      averageAccuracy: data.sum / data.count
+    }));
+  }
+
+
 
   updateEloChart(
     ratings: any[],
@@ -205,6 +245,49 @@ export class DashboardComponent {
       },
     });
   }
+
+  displayOpeningsAccuracyChart(averageAccuracies : any) {
+
+    const canvas = document.getElementById('openingsAccuracyChart') as HTMLCanvasElement;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      // Gérer le cas où le contexte n'est pas disponible
+      console.error('Unable to get the context of the canvas');
+      return;
+    }
+
+    if (this.openingsAccuracyChart) {
+      this.openingsAccuracyChart.destroy(); // Détruire le graphique existant si nécessaire
+    }
+  
+    this.openingsAccuracyChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: averageAccuracies.map((a: any) => a.opening),
+        datasets: [{
+          label: 'Average Accuracy per Opening',
+          data: averageAccuracies.map((a: any) => a.averageAccuracy),
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Accuracy (%)'
+            }
+          }
+        }
+      }
+    });
+  }
+
+
 
   switchView(newView: 'bullet' | 'blitz' | 'rapid') {
     this.currentView = newView;
