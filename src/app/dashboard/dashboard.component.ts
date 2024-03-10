@@ -145,7 +145,7 @@ export class DashboardComponent {
 
   calculateOpeningsAccuracies(games : Game[]) {
     const openingsAccuracies = games.reduce((acc: any, game: any) => {      
-      const key = `${game.opening} (${game.eco})`; // Utilisez une clé combinée de l'ouverture et de l'ECO
+      const key = `${game.opening} (${game.eco})`;
       if (!acc[key]) {
         acc[key] = { sum: 0, count: 0, eco: game.eco };
       }
@@ -178,6 +178,10 @@ export class DashboardComponent {
       this[chartRef].destroy();
     }
 
+    const eloValues = ratings.map(item => item.rating);
+    const eloMin = Math.min(...eloValues);
+    const eloMax = Math.max(...eloValues);
+
     
     this[chartRef] = new Chart(ctx, {
       type: 'line',
@@ -186,10 +190,10 @@ export class DashboardComponent {
         datasets: [
           {
             label: label,
-            data: ratings.map(item => item.rating),
+            data: eloValues,
             borderColor: borderColor,
             borderWidth: 2,
-            fill: false,
+            fill: true,
             pointRadius: 0,
           },
         ],
@@ -199,6 +203,8 @@ export class DashboardComponent {
           y: {
             position: 'right', 
             beginAtZero: false,
+            suggestedMin: eloMin * 0.8,
+            suggestedMax: eloMax * 1.2,
           },
         },
         plugins: {
