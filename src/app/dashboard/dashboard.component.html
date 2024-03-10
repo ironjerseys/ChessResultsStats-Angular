@@ -1,30 +1,59 @@
 <div class="main">
-  <form (ngSubmit)="getDataFromApi()">
-    <label for="username">Enter your username :</label>
-    <input
-      type="text"
-      id="username"
-      name="username"
-      [(ngModel)]="username"
-      required
-    />
-    <button type="submit">Get Data</button>
-  </form>
+  <div class="header">
+    <p>
+      Chess Results Stats provides you free analysis of your games if you play
+      on Chess.com <br />
+      You can access the results of any players, you or top players<br />
+      You just need to enter an username
+    </p>
+  </div>
 
-  <div class="topResults">
+  <div id="form">
+    <form (ngSubmit)="getDataFromApi()">
+      <label for="username">Enter your username :</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+      <button type="submit">
+        <span *ngIf="!isLoading">Get Data</span>
+        <img
+          *ngIf="isLoading"
+          src="assets/waitingLogo.gif"
+          alt="Chargement..."
+          id="loadingImg"
+        />
+      </button>
+    </form>
     <h2>Number of your games : {{ getNumberOfGames() }}</h2>
   </div>
 
   <div class="view-selector">
-    <button type="button" (click)="switchView('bullet')" [class.active]="currentView === 'bullet'">Bullet</button>
-    <button type="button" (click)="switchView('blitz')" [class.active]="currentView === 'blitz'">Blitz</button>
-    <button type="button" (click)="switchView('rapid')" [class.active]="currentView === 'rapid'">Rapid</button>
+    <button
+      type="button"
+      (click)="switchView('bullet')"
+      [class.active]="currentView === 'bullet'"
+    >
+      Bullet
+    </button>
+    <button
+      type="button"
+      (click)="switchView('blitz')"
+      [class.active]="currentView === 'blitz'"
+    >
+      Blitz
+    </button>
+    <button
+      type="button"
+      (click)="switchView('rapid')"
+      [class.active]="currentView === 'rapid'"
+    >
+      Rapid
+    </button>
   </div>
-  
-
-  
-
-
 
   <div class="charts-container">
     <div [class.hidden]="currentView !== 'bullet'" class="bullet">
@@ -32,8 +61,6 @@
       <div class="bullet">
         <h3>Elo</h3>
         <canvas id="eloBulletChart"></canvas>
-      </div>
-      <div class="bullet">
         <h3>Accuracy</h3>
         <canvas id="accuracyBulletChart"></canvas>
       </div>
@@ -44,8 +71,6 @@
       <div class="blitz">
         <h3>Elo</h3>
         <canvas id="eloBlitzChart"></canvas>
-      </div>
-      <div class="blitz">
         <h3>Accuracy</h3>
         <canvas id="accuracyBlitzChart"></canvas>
       </div>
@@ -56,17 +81,11 @@
       <div class="rapid">
         <h3>Elo</h3>
         <canvas id="eloRapidChart"></canvas>
-      </div>
-      <div class="rapid">
         <h3>Accuracy</h3>
         <canvas id="accuracyRapidChart"></canvas>
       </div>
     </div>
   </div>
-  
+
   <canvas id="openingsAccuracyChart" width="400" height="200"></canvas>
-
-
-
-
 </div>

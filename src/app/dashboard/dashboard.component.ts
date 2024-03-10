@@ -9,7 +9,6 @@ import { GameService } from '../services/game.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-
   currentView: 'bullet' | 'blitz' | 'rapid' = 'bullet';
 
   apiData: any;
@@ -25,6 +24,8 @@ export class DashboardComponent {
 
   openingsAccuracyChart: Chart | undefined;
 
+  isLoading: boolean = false;
+
   constructor(private gameService: GameService) {}
 
   ngOnInit() {
@@ -36,13 +37,12 @@ export class DashboardComponent {
   }
 
   getDataFromApi() {
-    console.log(this.username);
     if (this.username == '') {
       return;
     }
+    this.isLoading = true;
     this.gameService.getGames(this.username).subscribe({
       next: (data) => {
-        console.log(data);
         this.apiData = data;
 
         // Filter and prepare data for each chart
@@ -84,13 +84,18 @@ export class DashboardComponent {
 
         // Filter and prepare data for each chart
         const filterAccuracies = (timeControls: string[]) =>
-        data
-          .filter((game: Game) => timeControls.includes(game.timecontrol) && game.accuracy && game.accuracy > 0)
-          .map((game: Game) => {
-            const date = game.date;
-            const accuracy = game.accuracy;
-            return { date, accuracy };
-          });
+          data
+            .filter(
+              (game: Game) =>
+                timeControls.includes(game.timecontrol) &&
+                game.accuracy &&
+                game.accuracy > 0
+            )
+            .map((game: Game) => {
+              const date = game.date;
+              const accuracy = game.accuracy;
+              return { date, accuracy };
+            });
 
         // Bullet
         const bulletAccuracies = filterAccuracies(['60', '60+1', '120+1']);
@@ -119,53 +124,40 @@ export class DashboardComponent {
           '#0000b3'
         );
 
-        const allGames = data.filter(game => game.accuracy && game.accuracy > 0);
+        const allGames = data.filter(
+          (game) => game.accuracy && game.accuracy > 0
+        );
         const averageAccuracies = this.calculateOpeningsAccuracies(allGames);
         this.displayOpeningsAccuracyChart(averageAccuracies);
 
-        // const showOpeningsAccuracies = (timeControls: string[]) =>
-        // data
-        //   .filter((game: Game) => timeControls.includes(game.timecontrol) && game.accuracy && game.accuracy > 0)
-        //   .map((game: Game) => {
-        //     const opening = game.opening;
-        //     const accuracy = game.accuracy;
-        //     return { opening, accuracy };
-        //   });
-
-        
-
-          
-
-
-
-
+        this.isLoading = false;
       },
     });
   }
 
-  calculateOpeningsAccuracies(games : Game[]) {
-    const openingsAccuracies = games.reduce((acc: any, game: any) => {      
+  calculateOpeningsAccuracies(games: Game[]) {
+    const openingsAccuracies = games.reduce((acc: any, game: any) => {
       const key = `${game.opening} (${game.eco})`;
       if (!acc[key]) {
         acc[key] = { sum: 0, count: 0, eco: game.eco };
       }
 
       acc[key].sum += game.accuracy;
-        acc[key].count += 1;
-        return acc;
-      }, {});
-  
-      return Object.entries(openingsAccuracies).map(([key, data]: [string, any]) => {
-        const [opening, eco] = key.split(" ("); // Séparer la clé pour récupérer l'ouverture et l'ECO
+      acc[key].count += 1;
+      return acc;
+    }, {});
+
+    return Object.entries(openingsAccuracies).map(
+      ([key, data]: [string, any]) => {
+        const [opening, eco] = key.split(' ('); // Séparer la clé pour récupérer l'ouverture et l'ECO
         return {
           opening: opening.trim(),
           averageAccuracy: data.sum / data.count,
-          eco: eco.slice(0, -1) // Retirer la parenthèse fermante de l'ECO
+          eco: eco.slice(0, -1), // Retirer la parenthèse fermante de l'ECO
         };
-      });
-    }
-
-
+      }
+    );
+  }
 
   updateEloChart(
     ratings: any[],
@@ -178,15 +170,14 @@ export class DashboardComponent {
       this[chartRef].destroy();
     }
 
-    const eloValues = ratings.map(item => item.rating);
+    const eloValues = ratings.map((item) => item.rating);
     const eloMin = Math.min(...eloValues);
     const eloMax = Math.max(...eloValues);
 
-    
     this[chartRef] = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ratings.map(item => item.date),
+        labels: ratings.map((item) => item.date),
         datasets: [
           {
             label: label,
@@ -201,24 +192,27 @@ export class DashboardComponent {
       options: {
         scales: {
           y: {
-            position: 'right', 
+            position: 'right',
             beginAtZero: false,
-            suggestedMin: eloMin * 0.8,
-            suggestedMax: eloMax * 1.2,
+            suggestedMin: eloMin * 0.9,
+            suggestedMax: eloMax * 1.1,
           },
         },
         plugins: {
           legend: {
-            display: false, 
-          }
-        }
+            display: false,
+          },
+        },
       },
     });
   }
 
   updateAccuracyChart(
     accuracies: any[],
-    chartRef: 'accuracyBulletChart' | 'accuracyBlitzChart' | 'accuracyRapidChart',
+    chartRef:
+      | 'accuracyBulletChart'
+      | 'accuracyBlitzChart'
+      | 'accuracyRapidChart',
     label: string,
     borderColor: string
   ) {
@@ -227,6 +221,10 @@ export class DashboardComponent {
       this[chartRef].destroy();
     }
 
+    const accuracyValues = accuracies.map((item) => item.accuracy);
+    const accuracyMin = Math.min(...accuracyValues);
+    const accuracyMax = Math.max(...accuracyValues);
+
     this[chartRef] = new Chart(ctx, {
       type: 'line',
       data: {
@@ -234,10 +232,10 @@ export class DashboardComponent {
         datasets: [
           {
             label: label,
-            data: accuracies.map((item) => item.accuracy),
+            data: accuracyValues,
             borderColor: borderColor,
             borderWidth: 2,
-            fill: false,
+            fill: true,
             pointRadius: 0,
           },
         ],
@@ -245,34 +243,40 @@ export class DashboardComponent {
       options: {
         scales: {
           y: {
-            position: 'right', 
+            position: 'right',
             beginAtZero: false,
+            suggestedMin: accuracyMin * 0.9,
+            suggestedMax: accuracyMax * 1.1,
           },
         },
         plugins: {
           legend: {
             display: false,
-          }
-        }
+          },
+        },
       },
     });
   }
 
   displayOpeningsAccuracyChart(averageAccuracies: any) {
-    const ctx = document.getElementById('openingsAccuracyChart') as HTMLCanvasElement;
-    if (this.openingsAccuracyChart) this.openingsAccuracyChart.destroy(); // Détruire le graphique existant si nécessaire
-    
+    const ctx = document.getElementById(
+      'openingsAccuracyChart'
+    ) as HTMLCanvasElement;
+    if (this.openingsAccuracyChart) this.openingsAccuracyChart.destroy();
+
     this.openingsAccuracyChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: averageAccuracies.map((a: any) => `${a.opening} (${a.eco})`), // Afficher à la fois l'ouverture et l'ECO dans les étiquettes
-        datasets: [{
-          label: 'Average Accuracy per Opening',
-          data: averageAccuracies.map((a: any) => a.averageAccuracy),
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
+        labels: averageAccuracies.map((a: any) => `${a.opening} (${a.eco})`),
+        datasets: [
+          {
+            label: 'Average Accuracy per Opening',
+            data: averageAccuracies.map((a: any) => a.averageAccuracy),
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+          },
+        ],
       },
       options: {
         scales: {
@@ -280,19 +284,15 @@ export class DashboardComponent {
             beginAtZero: true,
             title: {
               display: true,
-              text: 'Accuracy (%)'
-            }
-          }
-        }
-      }
+              text: 'Accuracy (%)',
+            },
+          },
+        },
+      },
     });
   }
-
-
 
   switchView(newView: 'bullet' | 'blitz' | 'rapid') {
     this.currentView = newView;
   }
-
-
 }
