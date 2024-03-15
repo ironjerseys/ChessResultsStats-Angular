@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
+import { EcoData, CommonEco } from '../models/eco-data.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -135,28 +136,52 @@ export class DashboardComponent {
     });
   }
 
-  calculateOpeningsAccuracies(games: Game[]) {
-    const openingsAccuracies = games.reduce((acc: any, game: any) => {
-      const key = `${game.opening} (${game.eco})`;
-      if (!acc[key]) {
-        acc[key] = { sum: 0, count: 0, eco: game.eco };
+  calculateEcoAccuracies(games: Game[]): CommonEco[] {
+    const ecos = games.reduce((acc: Record<string, EcoData>, game: Game) => {
+      if (!acc[game.eco]) {
+        acc[game.eco] = { openings: [], totalAccuracy: 0, count: 0 };
       }
-
-      acc[key].sum += game.accuracy;
-      acc[key].count += 1;
+      acc[game.eco].openings.push(game.opening);
+      acc[game.eco].totalAccuracy += game.accuracy;
+      acc[game.eco].count++;
       return acc;
     }, {});
 
-    return Object.entries(openingsAccuracies).map(
-      ([key, data]: [string, any]) => {
-        const [opening, eco] = key.split(' ('); // Séparer la clé pour récupérer l'ouverture et l'ECO
-        return {
-          opening: opening.trim(),
-          averageAccuracy: data.sum / data.count,
-          eco: eco.slice(0, -1), // Retirer la parenthèse fermante de l'ECO
-        };
+    const commonEcos: CommonEco[] = Object.entries(ecos).map(([eco, data]) => {
+      const commonPrefix = this.findCommonPrefix(data.openings);
+      return {
+        eco,
+        opening: commonPrefix || eco, // Utiliser eco comme fallback si aucun préfixe commun n'est trouvé
+        averageAccuracy: data.totalAccuracy / data.count,
+        count: data.count, // Vous pouvez inclure count si vous prévoyez de l'utiliser pour d'autres traitements
+      };
+    });
+
+    return commonEcos.sort((a, b) => b.count - a.count).slice(0, 20);
+  }
+
+  calculateOpeningsAccuracies(games: Game[]): void {
+    let ecoAccuracies = this.calculateEcoAccuracies(games);
+    // À ce stade, ecoAccuracies est un tableau de CommonEco où chaque élément a déjà un `opening` défini comme le préfixe commun.
+    // Vous n'avez donc pas besoin de recalculer le préfixe ici.
+
+    // Continuez directement avec l'affichage du graphique
+    this.displayOpeningsAccuracyChart(ecoAccuracies);
+  }
+
+  // Fonction auxiliaire pour trouver le préfixe commun dans un tableau de strings
+  findCommonPrefix(strings: string[] | undefined): string {
+    // Vérifiez si strings est défini et non vide
+    if (!strings || strings.length === 0) return '';
+
+    let prefix = strings[0];
+    for (let i = 1; i < strings.length; i++) {
+      while (strings[i].indexOf(prefix) !== 0) {
+        prefix = prefix.substring(0, prefix.length - 1);
+        if (prefix === '') return '';
       }
-    );
+    }
+    return prefix;
   }
 
   updateEloChart(
@@ -259,6 +284,10 @@ export class DashboardComponent {
   }
 
   displayOpeningsAccuracyChart(averageAccuracies: any) {
+    if (averageAccuracies == undefined) {
+      console.log('averageAccuracies = undefined');
+      return;
+    }
     const ctx = document.getElementById(
       'openingsAccuracyChart'
     ) as HTMLCanvasElement;
