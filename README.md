@@ -29,7 +29,7 @@ npm install
 npm run start
 ```
 
-![ChessResultAnalyzerJava](screenshot/screen1.png)
+![ChessResultAnalyzerJava](screen1.png)
 ![ChessResultAnalyzerJava](screenshot/screen2.png)
 ![ChessResultAnalyzerJava](screenshot/screen3.png)
 ![ChessResultAnalyzerJava](screenshot/screen4.png)
