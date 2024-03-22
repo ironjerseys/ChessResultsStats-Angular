@@ -6,6 +6,8 @@ Chess Results Stats - Angular is the frontend for
 
 - ChessResultAnalyzerJava https://github.com/jorisreynes/ChessResultAnalyzerJava
 
+You can see it here on Azure : https://chessresultsstats.com/
+
 ## How it works
 
 This website calls an API from Chess.com to collect data from the wanted username
@@ -27,4 +29,7 @@ npm install
 npm run start
 ```
 
-![ChessResultAnalyzerJava](AngularScreenshot.jpg)
+![ChessResultAnalyzerJava](screenshot/screen1.png)
+![ChessResultAnalyzerJava](screenshot/screen2.png)
+![ChessResultAnalyzerJava](screenshot/screen3.png)
+![ChessResultAnalyzerJava](screenshot/screen4.png)
