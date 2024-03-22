@@ -18,8 +18,8 @@ You can see the results in the charts
 
 ## How to install it :
 
-- Git clone https://github.com/jorisreynes/LinqProject-Angular.git
-- cd LinqProject-Angular
+- Git clone https://github.com/jorisreynes/ChessResultsStats-Angular.git
+- cd ChessResultsStats-Angular
 
 ```
 npm install
