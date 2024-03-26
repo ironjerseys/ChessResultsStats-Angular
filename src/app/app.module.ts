@@ -7,9 +7,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { EloChartComponent } from './elo-chart/elo-chart.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, DashboardComponent],
+  declarations: [AppComponent, NavbarComponent, DashboardComponent, EloChartComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),
   // Register the ServiceWorker as soon as the application is stable

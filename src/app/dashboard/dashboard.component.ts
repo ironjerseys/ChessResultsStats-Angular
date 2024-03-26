@@ -10,7 +10,7 @@ import { EcoData, CommonEco } from '../models/eco-data.model';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  currentView: 'bullet' | 'blitz' | 'rapid' = 'bullet';
+  // currentView: 'bullet' | 'blitz' | 'rapid' = 'bullet';
 
   apiData: any;
   username: string = '';
@@ -321,7 +321,7 @@ export class DashboardComponent {
     });
   }
 
-  switchView(newView: 'bullet' | 'blitz' | 'rapid') {
-    this.currentView = newView;
-  }
+  // switchView(newView: 'bullet' | 'blitz' | 'rapid') {
+  //   this.currentView = newView;
+  // }
 }

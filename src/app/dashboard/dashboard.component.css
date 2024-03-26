@@ -42,59 +42,22 @@ button {
   width: 25px;
 }
 
-.view-selector {
-  background-color: #262522;
-  border-radius: 10px;
-  padding: 50px 20px;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.view-selector button:hover {
-  background-color: #7db04a;
-}
-
-/* currently active button */
-.view-selector button.active {
-  background-color: #5c9647;
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 .charts-container {
   display: flex;
-  justify-content: space-around; /* same space between elements */
+  justify-content: center; /* same space between elements */
   align-items: center; /* to center verticaly */
-  width: 60%;
-  margin: 0 auto;
+  flex-direction: column;
 }
 
-.charts-container > div {
-  flex: 1; /* every div take the same space from available space */
+/* Container pour chaque ligne de graphiques */
+.chart-row {
+  display: flex;
+  justify-content: space-around; /* Espacement équivalent entre les éléments */
+  width: 100%;
+  margin-bottom: 20px; /* Espacement entre les lignes de graphiques */
 }
 
-.rapidResults,
-.blitzResults,
-.bulletResults {
-  background-color: #262522;
-  margin: 5% auto;
-  border-radius: 10px;
-  padding: 3%;
-  width: 70%;
-}
-
-.bullet,
-.blitz,
-.rapid {
-  background-color: #262522;
-  margin: 100px auto;
-}
-
-canvas {
-  width: 80% !important;
-  margin: 50px auto;
-}
-
-.hidden {
-  display: none;
+.eloChart,
+.accuracyChart {
+  width: 100%;
 }
