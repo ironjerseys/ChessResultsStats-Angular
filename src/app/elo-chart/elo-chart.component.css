@@ -13,3 +13,10 @@
 .accuracyChart {
   width: 100%;
 }
+
+/* Media query pour les écrans de moins de 768px (tablettes et mobiles) */
+@media (max-width: 768px) {
+  .chart-row {
+    flex-direction: column;
+  }
+}
