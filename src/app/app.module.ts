@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { EloChartComponent } from './elo-chart/elo-chart.component';
 import { AccuracyChartComponent } from './accuracy-chart/accuracy-chart.component';
+import { OpeningChartComponent } from './opening-chart/opening-chart.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, DashboardComponent, EloChartComponent, AccuracyChartComponent],
+  declarations: [AppComponent, NavbarComponent, DashboardComponent, EloChartComponent, AccuracyChartComponent, OpeningChartComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),
   // Register the ServiceWorker as soon as the application is stable
