@@ -1,5 +1,4 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import Chart from 'chart.js/auto';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
 import { EcoData, CommonEco } from '../models/eco-data.model';
@@ -20,9 +19,6 @@ export class DashboardComponent implements AfterViewInit{
 
 	apiData: any;
 	username: string = '';
-
-	openingsAccuracyChart: Chart | undefined;
-
 	isLoading: boolean = false;
 
 	constructor(private gameService: GameService) {}
@@ -43,88 +39,50 @@ export class DashboardComponent implements AfterViewInit{
 
 			// Filter and prepare data for each chart
 			const filterRatings = (timeControls: string[]) =>
-			data
-				.filter((game: Game) => timeControls.includes(game.timecontrol))
+			data.filter((game: Game) => timeControls.includes(game.timecontrol))
 				.map((game: Game) => {
-				const date = game.date;
-				const rating = game.playerelo;
-				return { date, rating };
+					const date = game.date;
+					const rating = game.playerelo;
+					return { date, rating };
 				});
 
 			// Bullet
 			const bulletRatings = filterRatings(['60', '60+1', '120+1']);
-			this.eloChartComponent.updateEloChart(
-			bulletRatings,
-			'eloBulletChart',
-			'ELO Bullet Rating',
-			'red'
-			);
+			this.eloChartComponent.updateEloChart(bulletRatings, 'eloBulletChart', 'ELO Bullet Rating',	'red');
 
 			// Blitz
 			const blitzRatings = filterRatings(['180', '180+2', '300']);
-			this.eloChartComponent.updateEloChart(
-			blitzRatings,
-			'eloBlitzChart',
-			'ELO Blitz Rating',
-			'red'
-			);
+			this.eloChartComponent.updateEloChart(blitzRatings,	'eloBlitzChart', 'ELO Blitz Rating', 'red');
 
 			// Rapid
 			const rapidRatings = filterRatings(['600', '900+10', '1800']);
-			this.eloChartComponent.updateEloChart(
-			rapidRatings,
-			'eloRapidChart',
-			'ELO Rapid Rating',
-			'red'
-			);
+			this.eloChartComponent.updateEloChart(rapidRatings,	'eloRapidChart', 'ELO Rapid Rating', 'red');
 
 			// Filter and prepare data for each chart
 			const filterAccuracies = (timeControls: string[]) =>
-			data
-				.filter(
-				(game: Game) =>
-					timeControls.includes(game.timecontrol) &&
-					game.accuracy &&
-					game.accuracy > 0
-				)
+			data.filter(
+				(game: Game) =>	timeControls.includes(game.timecontrol) && game.accuracy && game.accuracy > 0)
 				.map((game: Game) => {
-				const date = game.date;
-				const accuracy = game.accuracy;
-				return { date, accuracy };
+					const date = game.date;
+					const accuracy = game.accuracy;
+					return { date, accuracy };
 				});
 
 			// Bullet
 			const bulletAccuracies = filterAccuracies(['60', '60+1', '120+1']);
-			this.accuracyChartComponent.updateAccuracyChart(
-			bulletAccuracies,
-			'accuracyBulletChart',
-			'Accuracy Bullet Rating',
-			'#0000b3'
-			);
+			this.accuracyChartComponent.updateAccuracyChart(bulletAccuracies, 'accuracyBulletChart', 'Accuracy Bullet Rating', '#0000b3');
 
 			// Blitz
 			const blitzAccuracies = filterAccuracies(['180', '180+2', '300']);
-			this.accuracyChartComponent.updateAccuracyChart(
-			blitzAccuracies,
-			'accuracyBlitzChart',
-			'Accuracy Blitz Rating',
-			'#0000b3'
-			);
+			this.accuracyChartComponent.updateAccuracyChart(blitzAccuracies, 'accuracyBlitzChart', 'Accuracy Blitz Rating',	'#0000b3');
 
 			// Rapid
 			const rapidAccuracies = filterAccuracies(['600', '900+10', '1800']);
-			this.accuracyChartComponent.updateAccuracyChart(
-			rapidAccuracies,
-			'accuracyRapidChart',
-			'Accuracy Rapid Rating',
-			'#0000b3'
-			);
+			this.accuracyChartComponent.updateAccuracyChart(rapidAccuracies, 'accuracyRapidChart', 'Accuracy Rapid Rating','#0000b3');
 
-			const allGames = data.filter(
-			(game) => game.accuracy && game.accuracy > 0
-			);
+			const allGames = data.filter((game) => game.accuracy && game.accuracy > 0);
 			const averageAccuracies = this.calculateOpeningsAccuracies(allGames);
-			this.displayOpeningsAccuracyChart(averageAccuracies);
+			this.openingChartComponent.displayOpeningsAccuracyChart(averageAccuracies);
 
 			this.isLoading = false;
 		},
@@ -151,18 +109,16 @@ export class DashboardComponent implements AfterViewInit{
 			count: data.count, // Vous pouvez inclure count si vous prévoyez de l'utiliser pour d'autres traitements
 		};
 		});
-
 		return commonEcos.sort((a, b) => b.count - a.count).slice(0, 20);
 	}
 
 	calculateOpeningsAccuracies(games: Game[]): void {
 		let ecoAccuracies = this.calculateEcoAccuracies(games);
-		this.displayOpeningsAccuracyChart(ecoAccuracies);
+		this.openingChartComponent.displayOpeningsAccuracyChart(ecoAccuracies);
 	}
 
 	// Fonction auxiliaire pour trouver le préfixe commun dans un tableau de strings
 	findCommonPrefix(strings: string[] | undefined): string {
-		// Vérifiez si strings est défini et non vide
 		if (!strings || strings.length === 0) return '';
 
 		let prefix = strings[0];
@@ -173,43 +129,5 @@ export class DashboardComponent implements AfterViewInit{
 		}
 		}
 		return prefix;
-	}
-
-	displayOpeningsAccuracyChart(averageAccuracies: any) {
-		if (averageAccuracies == undefined) {
-		console.log('averageAccuracies = undefined');
-		return;
-		}
-		const ctx = document.getElementById(
-		'openingsAccuracyChart'
-		) as HTMLCanvasElement;
-		if (this.openingsAccuracyChart) this.openingsAccuracyChart.destroy();
-
-		this.openingsAccuracyChart = new Chart(ctx, {
-		type: 'bar',
-		data: {
-			labels: averageAccuracies.map((a: any) => `${a.opening} (${a.eco})`),
-			datasets: [
-			{
-				label: 'Average Accuracy per Opening',
-				data: averageAccuracies.map((a: any) => a.averageAccuracy),
-				backgroundColor: 'rgba(75, 192, 192, 0.2)',
-				borderColor: 'rgba(75, 192, 192, 1)',
-				borderWidth: 1,
-			},
-			],
-		},
-		options: {
-			scales: {
-			y: {
-				beginAtZero: true,
-				title: {
-				display: true,
-				text: 'Accuracy (%)',
-				},
-			},
-			},
-		},
-		});
 	}
 }

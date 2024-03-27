@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+
 
 @Component({
   selector: 'app-elo-chart',
@@ -15,9 +17,8 @@ export class EloChartComponent {
   updateEloChart(ratings: any[], chartRef: 'eloBulletChart' | 'eloBlitzChart' | 'eloRapidChart', label: string, borderColor: string) 
   {
     const ctx = document.getElementById(chartRef) as HTMLCanvasElement;
-    if (this[chartRef]) {
-      this[chartRef].destroy();
-    }
+
+    if (this[chartRef]) {this[chartRef].destroy();}
 
     const eloValues = ratings.map((item) => item.rating);
     const eloMin = Math.min(...eloValues);

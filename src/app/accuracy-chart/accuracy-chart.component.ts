@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-accuracy-chart',
@@ -12,19 +13,10 @@ export class AccuracyChartComponent {
 	accuracyBlitzChart: any = null;
 	accuracyRapidChart: any = null;
 	
-	updateAccuracyChart(
-		accuracies: any[],
-		chartRef:
-		| 'accuracyBulletChart'
-		| 'accuracyBlitzChart'
-		| 'accuracyRapidChart',
-		label: string,
-		borderColor: string
-	) {
+	updateAccuracyChart(accuracies: any[], chartRef: 'accuracyBulletChart'	| 'accuracyBlitzChart' | 'accuracyRapidChart', label: string, borderColor: string) {
 		const ctx = document.getElementById(chartRef) as HTMLCanvasElement;
-		if (this[chartRef]) {
-		this[chartRef].destroy();
-		}
+		
+		if (this[chartRef]) {this[chartRef].destroy();}
 
 		const accuracyValues = accuracies.map((item) => item.accuracy);
 		const accuracyMin = Math.min(...accuracyValues);
