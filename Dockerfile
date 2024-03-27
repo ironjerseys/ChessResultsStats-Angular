@@ -11,7 +11,11 @@ COPY package*.json /app/
 RUN npm install
 
 # Copier les fichiers du projet dans le répertoire de travail du conteneur
-COPY . /app
+COPY package*.json ./
+COPY src ./src
+COPY angular.json .
+COPY tsconfig.app.json .
+COPY tsconfig.json .
 
 # Construire l'application pour la production
 RUN npm run build -- --configuration production
