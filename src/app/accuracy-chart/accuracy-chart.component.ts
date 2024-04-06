@@ -14,6 +14,12 @@ export class AccuracyChartComponent {
 	accuracyRapidChart: any = null;
 	
 	updateAccuracyChart(accuracies: any[], chartRef: 'accuracyBulletChart'	| 'accuracyBlitzChart' | 'accuracyRapidChart', label: string, borderColor: string) {
+		
+		if (accuracies == undefined || accuracies == null || accuracies.length === 0 ) {
+			console.log('accuracies = empty');
+			return;
+			}
+		
 		const ctx = document.getElementById(chartRef) as HTMLCanvasElement;
 		
 		if (this[chartRef]) {this[chartRef].destroy();}

@@ -31,13 +31,18 @@ export class DashboardComponent implements AfterViewInit{
 	}
 
 	getDataFromApi() {
+		// if username empty, we return
 		if (this.username == '') {return;}
+
+		// for loading circle
 		this.isLoading = true;
+
+		// we call the service to get the data from the API
 		this.gameService.getGames(this.username).subscribe({
 		next: (data) => {
 			this.apiData = data;
 
-			// Filter and prepare data for each chart
+			// we split the data by time control for the charts
 			const filterRatings = (timeControls: string[]) =>
 			data.filter((game: Game) => timeControls.includes(game.timecontrol))
 				.map((game: Game) => {
@@ -58,7 +63,7 @@ export class DashboardComponent implements AfterViewInit{
 			const rapidRatings = filterRatings(['600', '900+10', '1800']);
 			this.eloChartComponent.updateEloChart(rapidRatings,	'eloRapidChart', 'ELO Rapid Rating', 'red');
 
-			// Filter and prepare data for each chart
+			// we split the data by time control for the charts
 			const filterAccuracies = (timeControls: string[]) =>
 			data.filter(
 				(game: Game) =>	timeControls.includes(game.timecontrol) && game.accuracy && game.accuracy > 0)
@@ -80,20 +85,28 @@ export class DashboardComponent implements AfterViewInit{
 			const rapidAccuracies = filterAccuracies(['600', '900+10', '1800']);
 			this.accuracyChartComponent.updateAccuracyChart(rapidAccuracies, 'accuracyRapidChart', 'Accuracy Rapid Rating','#0000b3');
 
+			// we take all games, except those with empty accuracy
 			const allGames = data.filter((game) => game.accuracy && game.accuracy > 0);
-			const averageAccuracies = this.calculateOpeningsAccuracies(allGames);
+
+			const averageAccuracies = this.calculateEcoAccuracies(allGames);
 			this.openingChartComponent.displayOpeningsAccuracyChart(averageAccuracies);
 
+			// end of loading circle
 			this.isLoading = false;
 		},
 		});
 	}
 
 	calculateEcoAccuracies(games: Game[]): CommonEco[] {
+
+		// eco is the official id of an opening, we use redure to split data for each eco
 		const ecos = games.reduce((acc: Record<string, EcoData>, game: Game) => {
+
+		// if this eco doesnt exist, we create it
 		if (!acc[game.eco]) {
 			acc[game.eco] = { openings: [], totalAccuracy: 0, count: 0 };
 		}
+
 		acc[game.eco].openings.push(game.opening);
 		acc[game.eco].totalAccuracy += game.accuracy;
 		acc[game.eco].count++;
@@ -110,11 +123,6 @@ export class DashboardComponent implements AfterViewInit{
 		};
 		});
 		return commonEcos.sort((a, b) => b.count - a.count).slice(0, 20);
-	}
-
-	calculateOpeningsAccuracies(games: Game[]): void {
-		let ecoAccuracies = this.calculateEcoAccuracies(games);
-		this.openingChartComponent.displayOpeningsAccuracyChart(ecoAccuracies);
 	}
 
 	// Fonction auxiliaire pour trouver le préfixe commun dans un tableau de strings
