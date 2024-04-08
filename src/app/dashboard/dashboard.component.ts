@@ -4,6 +4,7 @@ import { GameService } from '../services/game.service';
 import { EloChartComponent } from '../elo-chart/elo-chart.component';
 import { AccuracyChartComponent } from '../accuracy-chart/accuracy-chart.component';
 import { OpeningChartComponent } from '../opening-chart/opening-chart.component';
+import { OpeningWinrateListComponent } from '../opening-winrate-list/opening-winrate-list.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,7 @@ export class DashboardComponent implements AfterViewInit{
 	@ViewChild('eloChartRef') eloChartComponent!: EloChartComponent;
 	@ViewChild('accuracyChartRef') accuracyChartComponent!: AccuracyChartComponent;
 	@ViewChild('openingChartRef') openingChartComponent!: OpeningChartComponent;
+	@ViewChild('openingWinrateListRef') openingWinrateListComponent!: OpeningWinrateListComponent;
 
 	apiData: any;
 	username: string = '';
@@ -86,6 +88,9 @@ export class DashboardComponent implements AfterViewInit{
 
 			// we take all games, except those with empty accuracy
 			const allGames = data.filter((game) => game.accuracy && game.accuracy > 0);
+
+			this.openingWinrateListComponent.calculateWinningOpenings(allGames);
+			this.openingWinrateListComponent.calculateLosingOpenings(allGames);
 
 			// We calculate accuracy for each eco and display the data on a graph
 			const averageAccuracies = this.openingChartComponent.calculateEcoAccuracies(allGames);

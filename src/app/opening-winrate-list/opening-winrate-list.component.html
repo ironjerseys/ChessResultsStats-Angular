@@ -1,0 +1,19 @@
+<div id="wonOpenings">
+	<h1>Most Won Openings</h1>
+	<ul>
+		<li *ngFor="let opening of winningOpenings">
+		  {{ opening.opening }}: {{ opening.count }} games won
+		</li>
+	</ul>
+</div>
+
+<div id="lostOpenings">
+	<h1>Most Lost Openings</h1>
+	<ul>
+		<li *ngFor="let opening of losingOpenings">
+		  {{ opening.opening }}: {{ opening.count }} games lost
+		</li>
+	</ul>
+</div>
+
+  

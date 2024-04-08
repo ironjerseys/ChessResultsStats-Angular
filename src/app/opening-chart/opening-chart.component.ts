@@ -69,7 +69,7 @@ export class OpeningChartComponent {
 			labels: averageAccuracies.map((a: any) => `${a.opening} (${a.eco})`),
 			datasets: [
 			{
-				label: 'Average Accuracy per Opening',
+				label: "",
 				data: averageAccuracies.map((a: any) => a.averageAccuracy),
 				backgroundColor: 'rgba(75, 192, 192, 0.2)',
 				borderColor: 'rgba(75, 192, 192, 1)',
@@ -87,6 +87,12 @@ export class OpeningChartComponent {
 				},
 			},
 			},
+			
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
 		},
 		});
 	}

@@ -13,8 +13,8 @@ export class Game {
   termination: string = '';
   moves: string = '';
   playerusername: string = '';
-  resultForPlayer: string = '';
-  endOfGameBy: string = '';
+  resultforplayer: string = '';
+  endofgameby: string = '';
   dateandtime: string = '';
   accuracy: number = 0;
   playerelo: number = 0;
