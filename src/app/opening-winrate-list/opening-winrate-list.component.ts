@@ -14,7 +14,7 @@ export class OpeningWinrateListComponent {
 	calculateWinningOpenings(games: Game[])
 	{
 		// We select only won games
-		const wonGames = games.filter(game => game.resultforplayer === 'won');
+		const wonGames = games.filter(game => game.resultForPlayer === 'won');
 
 		// We check the number of won games by opening
 		const winsByOpening = wonGames.reduce((acc, game) => {
@@ -37,7 +37,7 @@ export class OpeningWinrateListComponent {
 	calculateLosingOpenings(games: Game[])
 	{
 		// We select only won games
-		const lostGames = games.filter(game => game.resultforplayer === 'lost');
+		const lostGames = games.filter(game => game.resultForPlayer === 'lost');
 
 		// We check the number of won games by opening
 		const losesByOpening = lostGames.reduce((acc, game) => {

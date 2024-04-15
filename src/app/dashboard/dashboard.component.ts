@@ -45,10 +45,10 @@ export class DashboardComponent implements AfterViewInit{
 
 			// we split the data by time control for the charts
 			const filterRatings = (timeControls: string[]) =>
-			data.filter((game: Game) => timeControls.includes(game.timecontrol))
+			data.filter((game: Game) => timeControls.includes(game.timeControl))
 				.map((game: Game) => {
 					const date = game.date;
-					const rating = game.playerelo;
+					const rating = game.playerElo;
 					return { date, rating };
 				});
 
@@ -67,7 +67,7 @@ export class DashboardComponent implements AfterViewInit{
 			// we split the data by time control for the charts
 			const filterAccuracies = (timeControls: string[]) =>
 			data.filter(
-				(game: Game) =>	timeControls.includes(game.timecontrol) && game.accuracy && game.accuracy > 0)
+				(game: Game) =>	timeControls.includes(game.timeControl) && game.accuracy && game.accuracy > 0)
 				.map((game: Game) => {
 					const date = game.date;
 					const accuracy = game.accuracy;
