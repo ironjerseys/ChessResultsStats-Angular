@@ -8,52 +8,69 @@ import { Game } from '../../models/game';
 })
 export class OpeningWinrateListComponent {
 
-	winningOpenings: { opening: string; count: number; }[] = [];	  
-	losingOpenings: { opening: string; count: number; }[] = [];	  
+	winningOpenings: {	opening: string; count: number;	winRate: number;  }[] = [];  
 
-	calculateWinningOpenings(games: Game[])
-	{
-		// We select only won games
-		const wonGames = games.filter(game => game.resultForPlayer === 'won');
+	losingOpenings: { opening: string; count: number; winRate: number; }[] = [];	  
 
-		// We check the number of won games by opening
-		const winsByOpening = wonGames.reduce((acc, game) => {
-			if (acc[game.opening]) {
-			  acc[game.opening].count++;
-			} else {
-			  acc[game.opening] = { opening: game.opening, count: 1 };
+	calculateWinningOpenings(games: Game[]) {
+		const openingStats = games.reduce((acc, game) => {
+			// Initialise openings stats
+			if (!acc[game.opening]) {
+				acc[game.opening] = { opening: game.opening, wins: 0, total: 0 };
+			}
+			// Increment the number of games played with this opening
+			acc[game.opening].total++;
+
+			// Increment the number of games won
+			if (game.resultForPlayer === 'won') {
+				acc[game.opening].wins++;
 			}
 			return acc;
-		  }, {} as Record<string, { opening: string; count: number; }>);
-
-		// transform into object / sort by number of won games, we keep only 5 first
-		const sortedOpenings = Object.values(winsByOpening)
-		.sort((a, b) => b.count - a.count)
-		.slice(0, 5);
-
+		}, {} as Record<string, { opening: string; wins: number; total: number }>);
+	
+		// Calculate the winrate for each opening
+		const openingsWithWinRate = Object.values(openingStats).map(o => ({
+			opening: o.opening,
+			count: o.wins,
+			winRate: o.wins / o.total * 100  
+		}));
+		
+		// Sort openings and keep only 5 firsts
+		const sortedOpenings = openingsWithWinRate.sort((a, b) => b.count - a.count).slice(0, 5);
 		this.winningOpenings = sortedOpenings;
 	}
 	
-	calculateLosingOpenings(games: Game[])
-	{
-		// We select only won games
-		const lostGames = games.filter(game => game.resultForPlayer === 'lost');
+	
+	
+	
+	
+	calculateLosingOpenings(games: Game[]) {
+		const openingStats = games.reduce((acc, game) => {
+			// Initialise openings stats
+			if (!acc[game.opening]) {
+				acc[game.opening] = { opening: game.opening, losses: 0, total: 0 };
+			}
+			// Increment the number of games played with this opening
+			acc[game.opening].total++;
 
-		// We check the number of won games by opening
-		const losesByOpening = lostGames.reduce((acc, game) => {
-			if (acc[game.opening]) {
-			  acc[game.opening].count++;
-			} else {
-			  acc[game.opening] = { opening: game.opening, count: 1 };
+			// Increment the number of games lost
+			if (game.resultForPlayer === 'lost') {
+				acc[game.opening].losses++;
 			}
 			return acc;
-		  }, {} as Record<string, { opening: string; count: number; }>);
-
-		// transform into object / sort by number of won games, we keep only 5 first
-		const sortedOpenings = Object.values(losesByOpening)
-		.sort((a, b) => b.count - a.count)
-		.slice(0, 5);
-
+		}, {} as Record<string, { opening: string; losses: number; total: number }>);
+	
+		const openingsWithWinRate = Object.values(openingStats).map(o => ({
+			opening: o.opening,
+			count: o.losses,
+			winRate: 100 - (o.losses / o.total * 100)  
+		}));
+	
+		const sortedOpenings = openingsWithWinRate.sort((a, b) => b.count - a.count).slice(0, 5);
 		this.losingOpenings = sortedOpenings;
 	}
+	
+	
+	
+	
 }
