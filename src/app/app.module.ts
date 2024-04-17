@@ -7,11 +7,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { EloChartComponent } from './elo-chart/elo-chart.component';
-import { AccuracyChartComponent } from './accuracy-chart/accuracy-chart.component';
-import { OpeningChartComponent } from './opening-chart/opening-chart.component';
+import { EloChartComponent } from './dashboard/elo-chart/elo-chart.component';
+import { AccuracyChartComponent } from './dashboard/accuracy-chart/accuracy-chart.component';
+import { OpeningChartComponent } from './dashboard/opening-chart/opening-chart.component';
 import { CommonModule } from '@angular/common';
-import { OpeningWinrateListComponent } from './opening-winrate-list/opening-winrate-list.component';
+import { OpeningWinrateListComponent } from './dashboard/opening-winrate-list/opening-winrate-list.component';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, DashboardComponent, EloChartComponent, AccuracyChartComponent, OpeningChartComponent, OpeningWinrateListComponent ],

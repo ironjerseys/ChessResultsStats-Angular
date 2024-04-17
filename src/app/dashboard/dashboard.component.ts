@@ -1,10 +1,10 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
-import { EloChartComponent } from '../elo-chart/elo-chart.component';
-import { AccuracyChartComponent } from '../accuracy-chart/accuracy-chart.component';
-import { OpeningChartComponent } from '../opening-chart/opening-chart.component';
-import { OpeningWinrateListComponent } from '../opening-winrate-list/opening-winrate-list.component';
+import { EloChartComponent } from './elo-chart/elo-chart.component';
+import { AccuracyChartComponent } from './accuracy-chart/accuracy-chart.component';
+import { OpeningChartComponent } from './opening-chart/opening-chart.component';
+import { OpeningWinrateListComponent } from './opening-winrate-list/opening-winrate-list.component';
 
 @Component({
   selector: 'app-dashboard',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Game } from '../models/game';
+import { Game } from '../../models/game';
 
 @Component({
   selector: 'app-opening-winrate-list',

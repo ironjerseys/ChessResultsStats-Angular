@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { Game } from '../models/game';
-import { EcoData, CommonEco } from '../models/eco-data.model';
+import { Game } from '../../models/game';
+import { EcoData, CommonEco } from '../../models/eco-data.model';
 Chart.register(...registerables);
 
 @Component({
