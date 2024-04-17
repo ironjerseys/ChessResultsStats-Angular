@@ -9,7 +9,6 @@ import { Game } from '../../models/game';
 export class OpeningWinrateListComponent {
 
 	winningOpenings: {	opening: string; count: number;	winRate: number;  }[] = [];  
-
 	losingOpenings: { opening: string; count: number; winRate: number; }[] = [];	  
 
 	calculateWinningOpenings(games: Game[]) {
@@ -39,11 +38,7 @@ export class OpeningWinrateListComponent {
 		const sortedOpenings = openingsWithWinRate.sort((a, b) => b.count - a.count).slice(0, 5);
 		this.winningOpenings = sortedOpenings;
 	}
-	
-	
-	
-	
-	
+
 	calculateLosingOpenings(games: Game[]) {
 		const openingStats = games.reduce((acc, game) => {
 			// Initialise openings stats
@@ -69,8 +64,4 @@ export class OpeningWinrateListComponent {
 		const sortedOpenings = openingsWithWinRate.sort((a, b) => b.count - a.count).slice(0, 5);
 		this.losingOpenings = sortedOpenings;
 	}
-	
-	
-	
-	
 }
