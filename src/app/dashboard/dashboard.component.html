@@ -1,16 +1,8 @@
 <div class="main">
-  <div class="header">
-    <p>
-      Chess Results Stats provides you free analysis of your games if you play
-      on Chess.com <br />
-      You can access the results of any players, you or top players<br />
-      You just need to enter an username
-    </p>
-  </div>
-
   <div id="form">
+	<h2>Chess Results Stats provides you free analysis of Chess.com games</h2>
     <form (ngSubmit)="getDataFromApi()">
-      <label for="username">Enter your username :</label>
+      <label for="username">Enter an username : </label>
       <input
         type="text"
         id="username"
@@ -38,5 +30,4 @@
 	<app-opening-winrate-list #openingWinrateListRef></app-opening-winrate-list>
 	<app-opening-chart #openingChartRef></app-opening-chart>
   </div>
-  
 </div>
