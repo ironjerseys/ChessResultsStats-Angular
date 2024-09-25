@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   chessComApiUrl:
-    'https://chessresultsstatsbackendjava.azurewebsites.net/games',
+    'https://chessresultsstatscsharp-hqemdgbjcbesbwd8.francecentral-01.azurewebsites.net/api/Games',
 };
