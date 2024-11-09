@@ -5,14 +5,16 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class GameService {
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  // API call
-  public getGames(username: string): Observable<Game[]> {
-    const params = new HttpParams().set('playerusername', username);
-    return this.http.get<Game[]>(`${environment.chessComApiUrl}`, { params });
-  }
+    // API call
+    public getGames(username: string): Observable<Game[]> {
+        const params = new HttpParams().set('playerusername', username);
+        return this.http.get<Game[]>(`${environment.chessComApiUrl}`, {
+            params,
+        });
+    }
 }

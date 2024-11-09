@@ -4,7 +4,7 @@
 
 Chess Results Stats - Angular is the frontend for
 
-- ChessResultAnalyzerJava https://github.com/jorisreynes/ChessResultAnalyzerJava
+-   ChessResultAnalyzerJava https://github.com/jorisreynes/ChessResultAnalyzerJava
 
 You can see it here on Azure : https://chessresultsstats.com/
 
@@ -18,8 +18,8 @@ You can see the results in the charts
 
 ## How to install it :
 
-- Git clone https://github.com/jorisreynes/ChessResultsStats-Angular.git
-- cd ChessResultsStats-Angular
+-   Git clone https://github.com/jorisreynes/ChessResultsStats-Angular.git
+-   cd ChessResultsStats-Angular
 
 ```
 npm install

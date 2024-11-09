@@ -14,14 +14,29 @@ import { CommonModule } from '@angular/common';
 import { OpeningWinrateListComponent } from './dashboard/opening-winrate-list/opening-winrate-list.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, DashboardComponent, EloChartComponent, AccuracyChartComponent, OpeningChartComponent, OpeningWinrateListComponent ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, CommonModule, ServiceWorkerModule.register('ngsw-worker.js', {
-  enabled: !isDevMode(),
-  // Register the ServiceWorker as soon as the application is stable
-  // or after 30 seconds (whichever comes first).
-  registrationStrategy: 'registerWhenStable:30000'
-})],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        DashboardComponent,
+        EloChartComponent,
+        AccuracyChartComponent,
+        OpeningChartComponent,
+        OpeningWinrateListComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        CommonModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000',
+        }),
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

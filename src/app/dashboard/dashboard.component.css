@@ -1,65 +1,64 @@
-
 h3 {
-  margin: 40px 0px 50px 0px;
+    margin: 40px 0px 50px 0px;
 }
 
 .main {
-  text-align: center;
-  margin: 0 20px;
+    text-align: center;
+    margin: 0 20px;
 }
 
 #form {
-  background-color: #262522;
-  padding-bottom: 20px;
-  margin: 0 -20px;
+    background-color: #262522;
+    padding-bottom: 20px;
+    margin: 0 -20px;
 }
 
 #username {
-  margin: 10px;
-  border-radius: 10px;
-  border: none;
-  padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px;
 }
 
 button {
-  background-color: #7db04a;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 150px;
+    background-color: #7db04a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
 }
 
 #loadingImg {
-  width: 25px;
+    width: 25px;
 }
 
 .charts-container {
-  display: flex;
-  justify-content: center; /* same space between elements */
-  align-items: center; /* to center verticaly */
-  flex-direction: column;
-  margin-top: 30px;
+    display: flex;
+    justify-content: center; /* same space between elements */
+    align-items: center; /* to center verticaly */
+    flex-direction: column;
+    margin-top: 30px;
 }
 
 /* Container pour chaque ligne de graphiques */
 .chart-row {
-  display: flex;
-  justify-content: space-around; /* Espacement équivalent entre les éléments */
-  width: 100%;
-  margin-bottom: 20px; /* Espacement entre les lignes de graphiques */
+    display: flex;
+    justify-content: space-around; /* Espacement équivalent entre les éléments */
+    width: 100%;
+    margin-bottom: 20px; /* Espacement entre les lignes de graphiques */
 }
 
 .eloChart,
 .accuracyChart {
-  width: 100%;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
-	.main {
-		margin: 5px;
-	  }
-  }
+    .main {
+        margin: 5px;
+    }
+}

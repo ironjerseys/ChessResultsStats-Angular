@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarComponent } from './navbar.component';
+import { GamesCountComponent } from './games-count.component';
 
-describe('NavbarComponent', () => {
-    let component: NavbarComponent;
-    let fixture: ComponentFixture<NavbarComponent>;
+describe('GamesCountComponent', () => {
+    let component: GamesCountComponent;
+    let fixture: ComponentFixture<GamesCountComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [NavbarComponent],
+            imports: [GamesCountComponent],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(NavbarComponent);
+        fixture = TestBed.createComponent(GamesCountComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
