@@ -43,7 +43,6 @@ export class DashboardComponent implements AfterViewInit {
         this.gameService.getGames(this.username).subscribe({
             next: (data) => {
                 this.apiData = data;
-
                 this.numberOfGames = data.length;
 
                 // on sépare les données par cadence pour les graphiques
