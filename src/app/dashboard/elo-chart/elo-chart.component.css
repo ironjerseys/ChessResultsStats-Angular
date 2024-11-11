@@ -12,6 +12,10 @@
 .eloChart,
 .accuracyChart {
     width: 100%;
+    background-color: #262522 !important;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 3%;
 }
 
 /* Media query pour les écrans de moins de 768px (tablettes et mobiles) */

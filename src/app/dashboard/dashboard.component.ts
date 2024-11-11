@@ -22,6 +22,7 @@ export class DashboardComponent implements AfterViewInit {
     apiData: any;
     username: string = '';
     isLoading: boolean = false;
+    isChartVisible: boolean = false;
 
     constructor(private gameService: GameService) {}
     ngAfterViewInit(): void {
@@ -50,7 +51,7 @@ export class DashboardComponent implements AfterViewInit {
                 const filterRatings = (timeControls: string[]) =>
                     data
                         .filter((game: Game) =>
-                            timeControls.includes(game.timeControl),
+                            timeControls.includes(game.timeControl)
                         )
                         .map((game: Game) => {
                             const date = game.date;
@@ -64,7 +65,7 @@ export class DashboardComponent implements AfterViewInit {
                     bulletRatings,
                     'eloBulletChart',
                     'ELO Bullet Rating',
-                    'red',
+                    'red'
                 );
 
                 // Blitz
@@ -73,7 +74,7 @@ export class DashboardComponent implements AfterViewInit {
                     blitzRatings,
                     'eloBlitzChart',
                     'ELO Blitz Rating',
-                    'red',
+                    'red'
                 );
 
                 // Rapid
@@ -82,7 +83,7 @@ export class DashboardComponent implements AfterViewInit {
                     rapidRatings,
                     'eloRapidChart',
                     'ELO Rapid Rating',
-                    'red',
+                    'red'
                 );
 
                 // we split the data by time control for the charts
@@ -92,7 +93,7 @@ export class DashboardComponent implements AfterViewInit {
                             (game: Game) =>
                                 timeControls.includes(game.timeControl) &&
                                 game.accuracy &&
-                                game.accuracy > 0,
+                                game.accuracy > 0
                         )
                         .map((game: Game) => {
                             const date = game.date;
@@ -110,7 +111,7 @@ export class DashboardComponent implements AfterViewInit {
                     bulletAccuracies,
                     'accuracyBulletChart',
                     'Accuracy Bullet Rating',
-                    '#0000b3',
+                    '#0000b3'
                 );
 
                 // Blitz
@@ -123,7 +124,7 @@ export class DashboardComponent implements AfterViewInit {
                     blitzAccuracies,
                     'accuracyBlitzChart',
                     'Accuracy Blitz Rating',
-                    '#0000b3',
+                    '#0000b3'
                 );
 
                 // Rapid
@@ -136,30 +137,31 @@ export class DashboardComponent implements AfterViewInit {
                     rapidAccuracies,
                     'accuracyRapidChart',
                     'Accuracy Rapid Rating',
-                    '#0000b3',
+                    '#0000b3'
                 );
 
                 // we take all games, except those with empty accuracy
                 const allGames = data.filter(
-                    (game) => game.accuracy && game.accuracy > 0,
+                    (game) => game.accuracy && game.accuracy > 0
                 );
 
                 this.openingWinrateListComponent.calculateWinningOpenings(
-                    allGames,
+                    allGames
                 );
                 this.openingWinrateListComponent.calculateLosingOpenings(
-                    allGames,
+                    allGames
                 );
 
                 // We calculate accuracy for each eco and display the data on a graph
                 const averageAccuracies =
                     this.openingChartComponent.calculateEcoAccuracies(allGames);
                 this.openingChartComponent.displayOpeningsAccuracyChart(
-                    averageAccuracies,
+                    averageAccuracies
                 );
 
                 // end of loading circle
                 this.isLoading = false;
+                this.isChartVisible = true;
             },
         });
     }

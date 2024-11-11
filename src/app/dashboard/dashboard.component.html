@@ -26,7 +26,7 @@
         <!-- <h2>Number of your games : {{ getNumberOfGames() }}</h2> -->
     </div>
 
-    <div class="charts-container">
+    <div class="charts-container" [ngClass]="{'hidden': !isChartVisible}">
         <app-elo-chart #eloChartRef></app-elo-chart>
         <app-accuracy-chart #accuracyChartRef></app-accuracy-chart>
         <app-opening-winrate-list

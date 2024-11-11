@@ -42,6 +42,7 @@ button {
     align-items: center; /* to center verticaly */
     flex-direction: column;
     margin-top: 30px;
+
 }
 
 /* Container pour chaque ligne de graphiques */
@@ -55,6 +56,10 @@ button {
 .eloChart,
 .accuracyChart {
     width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 @media (max-width: 768px) {
