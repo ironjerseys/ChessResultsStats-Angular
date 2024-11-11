@@ -1,22 +1,27 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { DatePipe } from '@angular/common';
+
 Chart.register(...registerables);
 
 @Component({
     selector: 'app-elo-chart',
     templateUrl: './elo-chart.component.html',
     styleUrls: ['./elo-chart.component.css'],
+    providers: [DatePipe],
 })
 export class EloChartComponent {
     eloBulletChart: any = null;
     eloBlitzChart: any = null;
     eloRapidChart: any = null;
 
+    constructor(private datePipe: DatePipe) {}
+
     updateEloChart(
         ratings: any[],
         chartRef: 'eloBulletChart' | 'eloBlitzChart' | 'eloRapidChart',
         label: string,
-        borderColor: string,
+        borderColor: string
     ) {
         const ctx = document.getElementById(chartRef) as HTMLCanvasElement;
 
@@ -28,10 +33,14 @@ export class EloChartComponent {
         const eloMin = Math.min(...eloValues);
         const eloMax = Math.max(...eloValues);
 
+        const formattedDates = ratings.map((item) =>
+            this.datePipe.transform(item.date, 'dd/MM/yyyy')
+        );
+
         this[chartRef] = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ratings.map((item) => item.date),
+                labels: formattedDates,
                 datasets: [
                     {
                         label: label,

@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { DatePipe } from '@angular/common';
+
 Chart.register(...registerables);
 
 @Component({
     selector: 'app-accuracy-chart',
     templateUrl: './accuracy-chart.component.html',
     styleUrls: ['./accuracy-chart.component.css'],
+    providers: [DatePipe],
 })
 export class AccuracyChartComponent {
     accuracyBulletChart: any = null;
     accuracyBlitzChart: any = null;
     accuracyRapidChart: any = null;
+
+    constructor(private datePipe: DatePipe) {}
 
     updateAccuracyChart(
         accuracies: any[],
@@ -19,7 +24,7 @@ export class AccuracyChartComponent {
             | 'accuracyBlitzChart'
             | 'accuracyRapidChart',
         label: string,
-        borderColor: string,
+        borderColor: string
     ) {
         if (
             accuracies == undefined ||
@@ -40,10 +45,14 @@ export class AccuracyChartComponent {
         const accuracyMin = Math.min(...accuracyValues);
         const accuracyMax = Math.max(...accuracyValues);
 
+        const formattedDates = accuracies.map((item) =>
+            this.datePipe.transform(item.date, 'dd/MM/yyyy')
+        );
+
         this[chartRef] = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: accuracies.map((item) => item.date),
+                labels: formattedDates,
                 datasets: [
                     {
                         label: label,
