@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-games-count',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
     templateUrl: './games-count.component.html',
     styleUrl: './games-count.component.css',
 })
-export class GamesCountComponent {}
+export class GamesCountComponent {
+    @Input() numberOfGames: number = 0;
+}

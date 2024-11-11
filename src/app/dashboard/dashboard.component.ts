@@ -23,31 +23,30 @@ export class DashboardComponent implements AfterViewInit {
     username: string = '';
     isLoading: boolean = false;
     isChartVisible: boolean = false;
+    numberOfGames: number = 0;
 
     constructor(private gameService: GameService) {}
     ngAfterViewInit(): void {
         this.getDataFromApi();
     }
 
-    getNumberOfGames(): number {
-        return this.apiData ? this.apiData.length : 0;
-    }
-
     getDataFromApi() {
-        // if username empty, we return
+        // si pas d'username on quitte
         if (this.username == '') {
             return;
         }
 
-        // for loading circle
+        // on affiche l'icone de chargement
         this.isLoading = true;
 
-        // we call the service to get the data from the API
+        // on appelle le service pour avoir les données de l'API .NET
         this.gameService.getGames(this.username).subscribe({
             next: (data) => {
                 this.apiData = data;
 
-                // we split the data by time control for the charts
+                this.numberOfGames = data.length;
+
+                // on sépare les données par cadence pour les graphiques
                 const filterRatings = (timeControls: string[]) =>
                     data
                         .filter((game: Game) =>
@@ -86,7 +85,7 @@ export class DashboardComponent implements AfterViewInit {
                     'red'
                 );
 
-                // we split the data by time control for the charts
+                // on sépare les données par cadence pour les graphiques
                 const filterAccuracies = (timeControls: string[]) =>
                     data
                         .filter(
@@ -140,7 +139,7 @@ export class DashboardComponent implements AfterViewInit {
                     '#0000b3'
                 );
 
-                // we take all games, except those with empty accuracy
+                // on prend toutes les parties sauf celles sans accuracy
                 const allGames = data.filter(
                     (game) => game.accuracy && game.accuracy > 0
                 );
@@ -152,15 +151,17 @@ export class DashboardComponent implements AfterViewInit {
                     allGames
                 );
 
-                // We calculate accuracy for each eco and display the data on a graph
+                // on calcule l'accuracy pour chaque ouverture ECO
                 const averageAccuracies =
                     this.openingChartComponent.calculateEcoAccuracies(allGames);
                 this.openingChartComponent.displayOpeningsAccuracyChart(
                     averageAccuracies
                 );
 
-                // end of loading circle
+                // on cache l'icone de chargement
                 this.isLoading = false;
+
+                // on affiche les graphiques
                 this.isChartVisible = true;
             },
         });

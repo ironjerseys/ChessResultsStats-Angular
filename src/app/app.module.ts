@@ -12,6 +12,7 @@ import { AccuracyChartComponent } from './dashboard/accuracy-chart/accuracy-char
 import { OpeningChartComponent } from './dashboard/opening-chart/opening-chart.component';
 import { CommonModule } from '@angular/common';
 import { OpeningWinrateListComponent } from './dashboard/opening-winrate-list/opening-winrate-list.component';
+import { GamesCountComponent } from './dashboard/games-count/games-count.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { OpeningWinrateListComponent } from './dashboard/opening-winrate-list/op
             // or after 30 seconds (whichever comes first).
             registrationStrategy: 'registerWhenStable:30000',
         }),
+        GamesCountComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
