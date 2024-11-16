@@ -6,6 +6,8 @@ Chess Results Stats - Angular is the frontend for
 
 -   ChessResultAnalyzerJava https://github.com/jorisreynes/ChessResultAnalyzerJava
 
+It is build with Angular 17 and TypeScript 5.4.3
+
 You can see it here on Azure : https://chessresultsstats.com/
 
 ## How it works
