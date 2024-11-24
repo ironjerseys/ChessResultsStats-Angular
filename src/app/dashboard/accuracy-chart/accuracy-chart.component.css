@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .eloChart,
@@ -14,7 +14,7 @@
     width: 100%;
     background-color: #262522 !important;
     padding: 1%;
-    margin: 1%;
+    margin: 1% 0;
     border-radius: 10px;
 }
 

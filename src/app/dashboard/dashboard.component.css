@@ -46,7 +46,7 @@ button {
 
 .chart-container {
     display: flex; /* Disposition en ligne */
-    gap: 20px; /* Espacement entre les composants */
+    /* gap: 20px;  */
     justify-content: space-between; /* Espacement égal */
     align-items: flex-start; /* Aligner les composants en haut */
     width: 100%;
@@ -59,7 +59,7 @@ button {
     width: 100%;
     background-color: #262522 !important;
     padding: 1%;
-    margin: 1%;
+    margin: 1% 0;
     border-radius: 10px;
 }
 
