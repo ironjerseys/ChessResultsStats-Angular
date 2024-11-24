@@ -143,12 +143,12 @@ export class DashboardComponent implements AfterViewInit {
                     (game) => game.accuracy && game.accuracy > 0
                 );
 
-                this.openingWinrateListComponent.calculateWinningOpenings(
-                    allGames
-                );
-                this.openingWinrateListComponent.calculateLosingOpenings(
-                    allGames
-                );
+                // this.openingWinrateListComponent.calculateWinningOpenings(
+                //     allGames
+                // );
+                // this.openingWinrateListComponent.calculateLosingOpenings(
+                //     allGames
+                // );
 
                 // on calcule l'accuracy pour chaque ouverture ECO
                 const averageAccuracies =

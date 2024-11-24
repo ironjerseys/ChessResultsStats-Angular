@@ -29,9 +29,11 @@
         <app-games-count [numberOfGames]="numberOfGames"></app-games-count>
         <app-elo-chart #eloChartRef></app-elo-chart>
         <app-accuracy-chart #accuracyChartRef></app-accuracy-chart>
-        <app-opening-winrate-list
-            #openingWinrateListRef
-        ></app-opening-winrate-list>
-        <app-opening-chart #openingChartRef></app-opening-chart>
+        <!-- <app-opening-winrate-list #openingWinrateListRef></app-opening-winrate-list> -->
+
+        <div class="chart-container">
+            <app-opening-chart #openingChartRef></app-opening-chart>
+            <app-winrate-histogram [username]="username"></app-winrate-histogram>
+        </div>
     </div>
 </div>

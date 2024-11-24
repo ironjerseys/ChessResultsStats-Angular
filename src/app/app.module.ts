@@ -13,6 +13,7 @@ import { OpeningChartComponent } from './dashboard/opening-chart/opening-chart.c
 import { CommonModule } from '@angular/common';
 import { OpeningWinrateListComponent } from './dashboard/opening-winrate-list/opening-winrate-list.component';
 import { GamesCountComponent } from './dashboard/games-count/games-count.component';
+import { WinrateHistogramComponent } from './dashboard/winrate-histogram/winrate-histogram.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { GamesCountComponent } from './dashboard/games-count/games-count.compone
         AccuracyChartComponent,
         OpeningChartComponent,
         OpeningWinrateListComponent,
+        WinrateHistogramComponent,
     ],
     imports: [
         BrowserModule,

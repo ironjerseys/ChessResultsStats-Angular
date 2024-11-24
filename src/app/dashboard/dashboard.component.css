@@ -42,7 +42,25 @@ button {
     align-items: center; /* to center verticaly */
     flex-direction: column;
     margin-top: 30px;
+}
 
+.chart-container {
+    display: flex; /* Disposition en ligne */
+    gap: 20px; /* Espacement entre les composants */
+    justify-content: space-between; /* Espacement égal */
+    align-items: flex-start; /* Aligner les composants en haut */
+    width: 100%;
+}
+
+.chart-container app-opening-chart,
+.chart-container app-winrate-histogram {
+    flex: 1; /* Les deux composants prennent une largeur égale */
+    max-width: 50%; /* Chaque composant occupe au maximum la moitié de l'espace */
+    width: 100%;
+    background-color: #262522 !important;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
 }
 
 /* Container pour chaque ligne de graphiques */

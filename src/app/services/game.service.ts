@@ -13,8 +13,7 @@ export class GameService {
     // API call
     public getGames(username: string): Observable<Game[]> {
         const params = new HttpParams().set('playerusername', username);
-        return this.http.get<Game[]>(`${environment.chessComApiUrl}`, {
-            params,
-        });
+        const url = `${environment.apiBaseUrl}${environment.routes.games}`;
+        return this.http.get<Game[]>(url, { params });
     }
 }
