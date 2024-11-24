@@ -81,7 +81,15 @@ button {
 }
 
 @media (max-width: 768px) {
-    .main {
+    /* .main {
         margin: 5px;
+    } */
+
+    .chart-container {
+        flex-direction: column; /* Empiler les composants */
+    }
+
+    .chart-container app-opening-chart, .chart-container app-winrate-histogram {
+        max-width: 100%;
     }
 }
