@@ -59,7 +59,7 @@ button {
     width: 100%;
     background-color: #262522 !important;
     padding: 1%;
-    margin: 1% 0;
+    margin: 1%;
     border-radius: 10px;
 }
 
@@ -91,5 +91,10 @@ button {
 
     .chart-container app-opening-chart, .chart-container app-winrate-histogram {
         max-width: 100%;
+    }
+
+    .chart-container app-opening-chart,
+    .chart-container app-winrate-histogram {
+        margin: 1% 0;
     }
 }

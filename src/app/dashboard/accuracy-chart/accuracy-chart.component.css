@@ -14,7 +14,7 @@
     width: 100%;
     background-color: #262522 !important;
     padding: 1%;
-    margin: 1% 0;
+    margin: 1%;
     border-radius: 10px;
 }
 
@@ -23,4 +23,8 @@
     .chart-row {
         flex-direction: column;
     }
+    .eloChart,
+.accuracyChart {
+    margin: 1% 0;
+}
 }
