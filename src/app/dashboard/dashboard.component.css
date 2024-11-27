@@ -39,7 +39,7 @@ button {
     justify-content: center; /* same space between elements */
     align-items: center; /* to center verticaly */
     flex-direction: column;
-    margin-top: 30px;
+    margin: 2%;
 }
 
 .chart-container {
