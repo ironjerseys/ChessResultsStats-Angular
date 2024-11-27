@@ -1,1 +1,33 @@
-<p>moves-by-pieces works!</p>
+<div *ngIf="averageMoves">
+    <h2>Average Moves by Piece</h2>
+    <table class="averageMovesTable">
+        <tr>
+            <th>Piece</th>
+            <th>Average Moves</th>
+        </tr>
+        <tr>
+            <td>Pawns</td>
+            <td>{{ averageMoves.avgPawnMoves | number:'1.1-1' }}</td>
+        </tr>
+        <tr>
+            <td>Knights</td>
+            <td>{{ averageMoves.avgKnightMoves | number:'1.1-1' }}</td>
+        </tr>
+        <tr>
+            <td>Bishops</td>
+            <td>{{ averageMoves.avgBishopMoves | number:'1.1-1' }}</td>
+        </tr>
+        <tr>
+            <td>Rooks</td>
+            <td>{{ averageMoves.avgRookMoves | number:'1.1-1' }}</td>
+        </tr>
+        <tr>
+            <td>Queen</td>
+            <td>{{ averageMoves.avgQueenMoves | number:'1.1-1' }}</td>
+        </tr>
+        <tr>
+            <td>King</td>
+            <td>{{ averageMoves.avgKingMoves | number:'1.1-1' }}</td>
+        </tr>
+    </table>
+</div>

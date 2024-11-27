@@ -4,13 +4,11 @@ h3 {
 
 .main {
     text-align: center;
-    margin: 0 20px;
 }
 
 #form {
     background-color: #262522;
     padding-bottom: 20px;
-    margin: 0 -20px;
 }
 
 #username {
@@ -46,16 +44,15 @@ button {
 
 .chart-container {
     display: flex; /* Disposition en ligne */
-    /* gap: 20px;  */
-    justify-content: space-between; /* Espacement égal */
-    align-items: flex-start; /* Aligner les composants en haut */
     width: 100%;
 }
 
 .chart-container app-opening-chart,
-.chart-container app-winrate-histogram {
-    flex: 1; /* Les deux composants prennent une largeur égale */
-    max-width: 50%; /* Chaque composant occupe au maximum la moitié de l'espace */
+.chart-container app-winrate-histogram,
+.chart-container app-moves-by-pieces
+{
+    flex: 1; 
+    max-width: 48%; 
     width: 100%;
     background-color: #262522 !important;
     padding: 1%;
@@ -81,18 +78,12 @@ button {
 }
 
 @media (max-width: 768px) {
-    /* .main {
-        margin: 5px;
-    } */
-
     .chart-container {
         flex-direction: column; /* Empiler les composants */
     }
-
-    .chart-container app-opening-chart, .chart-container app-winrate-histogram {
+    .chart-container app-opening-chart, .chart-container app-winrate-histogram, .chart-container app-moves-by-pieces {
         max-width: 100%;
     }
-
     .chart-container app-opening-chart,
     .chart-container app-winrate-histogram {
         margin: 1% 0;

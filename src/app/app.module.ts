@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { OpeningWinrateListComponent } from './dashboard/opening-winrate-list/opening-winrate-list.component';
 import { GamesCountComponent } from './dashboard/games-count/games-count.component';
 import { WinrateHistogramComponent } from './dashboard/winrate-histogram/winrate-histogram.component';
+import { MovesByPiecesComponent } from './dashboard/moves-by-pieces/moves-by-pieces.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { WinrateHistogramComponent } from './dashboard/winrate-histogram/winrate
         OpeningChartComponent,
         OpeningWinrateListComponent,
         WinrateHistogramComponent,
+        MovesByPiecesComponent,
     ],
     imports: [
         BrowserModule,

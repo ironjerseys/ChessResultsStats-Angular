@@ -4,5 +4,6 @@ export const environment = {
     routes: {
         games: '/Games',
         winrates: '/Winrates',
+        averageMoves: '/get-average-moves',
     },
 };
