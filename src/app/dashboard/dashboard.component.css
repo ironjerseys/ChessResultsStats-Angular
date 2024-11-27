@@ -85,7 +85,9 @@ button {
         max-width: 100%;
     }
     .chart-container app-opening-chart,
-    .chart-container app-winrate-histogram {
+    .chart-container app-winrate-histogram,
+    .chart-container app-moves-by-pieces
+    {
         margin: 1% 0;
     }
 }
