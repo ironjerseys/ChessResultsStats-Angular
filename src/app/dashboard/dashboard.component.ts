@@ -4,7 +4,6 @@ import { GameService } from '../services/game.service';
 import { EloChartComponent } from './elo-chart/elo-chart.component';
 import { AccuracyChartComponent } from './accuracy-chart/accuracy-chart.component';
 import { OpeningChartComponent } from './opening-chart/opening-chart.component';
-import { OpeningWinrateListComponent } from './opening-winrate-list/opening-winrate-list.component';
 
 @Component({
     selector: 'app-dashboard',
@@ -17,8 +16,6 @@ export class DashboardComponent implements AfterViewInit {
     accuracyChartComponent!: AccuracyChartComponent;
     @ViewChild('openingChartRef') openingChartComponent!: OpeningChartComponent;
     @ViewChild('openingWinrateListRef')
-    openingWinrateListComponent!: OpeningWinrateListComponent;
-
     apiData: any;
     username: string = '';
     isLoading: boolean = false;

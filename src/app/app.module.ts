@@ -11,7 +11,6 @@ import { EloChartComponent } from './dashboard/elo-chart/elo-chart.component';
 import { AccuracyChartComponent } from './dashboard/accuracy-chart/accuracy-chart.component';
 import { OpeningChartComponent } from './dashboard/opening-chart/opening-chart.component';
 import { CommonModule } from '@angular/common';
-import { OpeningWinrateListComponent } from './dashboard/opening-winrate-list/opening-winrate-list.component';
 import { GamesCountComponent } from './dashboard/games-count/games-count.component';
 import { WinrateHistogramComponent } from './dashboard/winrate-histogram/winrate-histogram.component';
 import { MovesByPiecesComponent } from './dashboard/moves-by-pieces/moves-by-pieces.component';
@@ -24,7 +23,6 @@ import { MovesByPiecesComponent } from './dashboard/moves-by-pieces/moves-by-pie
         EloChartComponent,
         AccuracyChartComponent,
         OpeningChartComponent,
-        OpeningWinrateListComponent,
         WinrateHistogramComponent,
         MovesByPiecesComponent,
     ],
