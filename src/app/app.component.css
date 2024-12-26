@@ -1,6 +1,5 @@
-#app {
-    color: white !important;
-    height: 100%;
+main {
+    text-align: center;
 }
 
 button {
@@ -29,13 +28,7 @@ select {
     font-size: 16px;
 }
 
-#main {
-    width: 70%;
-    margin: 1% auto;
-    overflow: hidden;
-    display: flex;
-    align-items: stretch;
-}
+
 
 #results {
     width: 65%;

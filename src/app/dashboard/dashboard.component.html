@@ -1,42 +1,39 @@
-<div class="main">
-    <div id="form">
-        <h2>
-            Chess Results Stats provides you free analysis of Chess.com games
-        </h2>
-        <form (ngSubmit)="getDataFromApi()">
-            <label for="username">Enter an username : </label>
-            <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="e.g. MagnusCarlsen"
-                [(ngModel)]="username"
-                required
+<section id="form">
+    <h2>
+        Chess Results Stats provides you free analysis of Chess.com games
+    </h2>
+    <form (ngSubmit)="getDataFromApi()">
+        <label for="username">Enter an username : </label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="e.g. MagnusCarlsen"
+            [(ngModel)]="username"
+            required
+        />
+        <button type="submit">
+            <span *ngIf="!isLoading">Get Data</span>
+            <img
+                *ngIf="isLoading"
+                src="assets/waitingLogo.gif"
+                alt="Chargement..."
+                id="loadingImg"
             />
-            <button type="submit">
-                <span *ngIf="!isLoading">Get Data</span>
-                <img
-                    *ngIf="isLoading"
-                    src="assets/waitingLogo.gif"
-                    alt="Chargement..."
-                    id="loadingImg"
-                />
-            </button>
-        </form>
-    </div>
-    
-    <div class="charts-container" [ngClass]="{'hidden': !isChartVisible}">
-        <app-games-count [numberOfGames]="numberOfGames"></app-games-count>
-        <app-elo-chart #eloChartRef></app-elo-chart>
-        <app-accuracy-chart #accuracyChartRef></app-accuracy-chart>
-        <!-- <app-opening-winrate-list #openingWinrateListRef></app-opening-winrate-list> -->
+        </button>
+    </form>
+</section>
 
-        <div class="chart-container">
-            <app-opening-chart #openingChartRef></app-opening-chart>
-            <app-winrate-histogram [username]="username"></app-winrate-histogram>
-        </div>
-        <div class="chart-container">
-            <app-moves-by-pieces [username]="username"></app-moves-by-pieces>
-        </div>
+<div class="charts-container" [ngClass]="{'hidden': !isChartVisible}">
+    <app-games-count [numberOfGames]="numberOfGames"></app-games-count>
+    <app-elo-chart #eloChartRef></app-elo-chart>
+    <app-accuracy-chart #accuracyChartRef></app-accuracy-chart>
+
+    <div class="chart-container">
+        <app-opening-chart #openingChartRef></app-opening-chart>
+        <app-winrate-histogram [username]="username"></app-winrate-histogram>
+    </div>
+    <div class="chart-container">
+        <app-moves-by-pieces [username]="username"></app-moves-by-pieces>
     </div>
 </div>
