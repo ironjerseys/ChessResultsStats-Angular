@@ -2,5 +2,28 @@
 
 body {
     background-color: #302e2b !important;
-    color: white !important;
+    color: #CCCCCC !important;
+}
+
+.item{
+    background-color: #262522!important;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.item-row{
+    display: flex;
+    width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+
+@media (max-width: 768px) {
+    .item-row{
+        flex-direction: column;
+    }
 }

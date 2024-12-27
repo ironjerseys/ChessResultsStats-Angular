@@ -1,9 +1,3 @@
-
-
-.main {
-    text-align: center;
-}
-
 #form {
     background-color: #262522;
     padding-bottom: 20px;
@@ -33,59 +27,5 @@ button {
 }
 
 .charts-container {
-    display: flex;
-    justify-content: center; /* same space between elements */
-    align-items: center; /* to center verticaly */
-    flex-direction: column;
     margin: 2%;
-}
-
-.chart-container {
-    display: flex; /* Disposition en ligne */
-    width: 100%;
-}
-
-.chart-container app-opening-chart,
-.chart-container app-winrate-histogram,
-.chart-container app-moves-by-pieces
-{
-    flex: 1; 
-    max-width: 48%; 
-    width: 100%;
-    background-color: #262522 !important;
-    padding: 1%;
-    margin: 1%;
-    border-radius: 10px;
-}
-
-/* Container pour chaque ligne de graphiques */
-.chart-row {
-    display: flex;
-    justify-content: space-around; /* Espacement équivalent entre les éléments */
-    width: 100%;
-    margin-bottom: 20px; /* Espacement entre les lignes de graphiques */
-}
-
-.eloChart,
-.accuracyChart {
-    width: 100%;
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-@media (max-width: 768px) {
-    .chart-container {
-        flex-direction: column; /* Empiler les composants */
-    }
-    .chart-container app-opening-chart, .chart-container app-winrate-histogram, .chart-container app-moves-by-pieces {
-        max-width: 100%;
-    }
-    .chart-container app-opening-chart,
-    .chart-container app-winrate-histogram,
-    .chart-container app-moves-by-pieces
-    {
-        margin: 1% 0;
-    }
 }
