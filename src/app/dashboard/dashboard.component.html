@@ -3,12 +3,11 @@
         Chess Results Stats provides you free analysis of Chess.com games
     </h2>
     <form (ngSubmit)="getDataFromApi()">
-        <label for="username">Enter an username : </label>
         <input
             type="text"
             id="username"
             name="username"
-            placeholder="e.g. MagnusCarlsen"
+            placeholder="Username"
             [(ngModel)]="username"
             required
         />

@@ -30,7 +30,7 @@ export class OpeningChartComponent {
                 acc[game.eco].count++;
                 return acc;
             },
-            {},
+            {}
         );
 
         // Fonction auxiliaire pour trouver le préfixe commun dans un tableau de strings, maintenant intégrée
@@ -56,7 +56,7 @@ export class OpeningChartComponent {
                     averageAccuracy: data.totalAccuracy / data.count,
                     count: data.count, // Vous pouvez inclure count si vous prévoyez de l'utiliser pour d'autres traitements
                 };
-            },
+            }
         );
         return commonEcos.sort((a, b) => b.count - a.count).slice(0, 20);
     }
@@ -67,7 +67,7 @@ export class OpeningChartComponent {
             return;
         }
         const ctx = document.getElementById(
-            'openingsAccuracyChart',
+            'openingsAccuracyChart'
         ) as HTMLCanvasElement;
         if (this.openingsAccuracyChart) this.openingsAccuracyChart.destroy();
 
@@ -75,13 +75,13 @@ export class OpeningChartComponent {
             type: 'bar',
             data: {
                 labels: averageAccuracies.map(
-                    (a: any) => `${a.opening} (${a.eco})`,
+                    (a: any) => `${a.opening} (${a.eco})`
                 ),
                 datasets: [
                     {
                         label: '',
                         data: averageAccuracies.map(
-                            (a: any) => a.averageAccuracy,
+                            (a: any) => a.averageAccuracy
                         ),
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -90,6 +90,7 @@ export class OpeningChartComponent {
                 ],
             },
             options: {
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true,
