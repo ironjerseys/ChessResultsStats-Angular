@@ -4,7 +4,7 @@ export const environment = {
         'https://chessresultsstatscsharp-hqemdgbjcbesbwd8.francecentral-01.azurewebsites.net/api',
     routes: {
         games: '/Games',
-        winrates: '/Winrates',
+        winrates: '/winrates',
         averageMoves: '/get-average-moves',
     },
 };
