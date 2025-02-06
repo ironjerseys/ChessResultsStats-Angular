@@ -1,0 +1,966 @@
+{
+    "Scoth Game": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4.png"
+            }
+        ],
+        "Advance Variation": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...exd4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4.png"
+            },
+            {
+                "move": "4.Nxd4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4_4_Nxd4.png"
+            },
+            {
+                "move": "4...Bc5",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4_4_Nxd4_4___Bc5.png"
+            }
+        ],
+        "Schmidt Variation": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...exd4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4.png"
+            },
+            {
+                "move": "4.Nxd4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4_4_Nxd4.png"
+            },
+            {
+                "move": "4...Nf6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4_4_Nxd4_4___Nf6.png"
+            }
+        ],
+        "Scoth Gambit": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...exd4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4.png"
+            },
+            {
+                "move": "4.Bc4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4_4_Bc4.png"
+            }
+        ],
+        "Goring Gambit": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...exd4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4.png"
+            },
+            {
+                "move": "4.c3",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_d4_3___exd4_4_c3.png"
+            }
+        ]
+    },
+    "Ruy Lopez": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.Bb5",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bb5.png"
+            }
+        ],
+        "Berlin Defense": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.Bb5",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bb5.png"
+            },
+            {
+                "move": "3...Nf6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bb5_3___Nf6.png"
+            }
+        ]
+    },
+    "Sicilian Defense": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c5",
+                "image": "1_e4_1___c5.png"
+            }
+        ],
+        "Svechnikov": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c5",
+                "image": "1_e4_1___c5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___c5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...cxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4.png"
+            },
+            {
+                "move": "4.Nxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4.png"
+            },
+            {
+                "move": "4...Nf6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___Nf6.png"
+            },
+            {
+                "move": "5.Nc3",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___Nf6_5_Nc3.png"
+            },
+            {
+                "move": "5...e5",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___Nf6_5_Nc3_5___e5.png"
+            }
+        ],
+        "Kalashnikov": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c5",
+                "image": "1_e4_1___c5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___c5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...cxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4.png"
+            },
+            {
+                "move": "4.Nxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4.png"
+            },
+            {
+                "move": "4...e5",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___e5.png"
+            },
+            {
+                "move": "5.Nb5",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___e5_5_Nb5.png"
+            },
+            {
+                "move": "5...d6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___e5_5_Nb5_5___d6.png"
+            }
+        ],
+        "Scheveningue's Variation": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c5",
+                "image": "1_e4_1___c5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___c5_2_Nf3.png"
+            },
+            {
+                "move": "2...d6",
+                "image": "1_e4_1___c5_2_Nf3_2___d6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___c5_2_Nf3_2___d6_3_d4.png"
+            },
+            {
+                "move": "3...cxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___d6_3_d4_3___cxd4.png"
+            },
+            {
+                "move": "4.Nxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___d6_3_d4_3___cxd4_4_Nxd4.png"
+            },
+            {
+                "move": "4...Nf6",
+                "image": "1_e4_1___c5_2_Nf3_2___d6_3_d4_3___cxd4_4_Nxd4_4___Nf6.png"
+            },
+            {
+                "move": "5.Nc3",
+                "image": "1_e4_1___c5_2_Nf3_2___d6_3_d4_3___cxd4_4_Nxd4_4___Nf6_5_Nc3.png"
+            },
+            {
+                "move": "5...e6",
+                "image": "1_e4_1___c5_2_Nf3_2___d6_3_d4_3___cxd4_4_Nxd4_4___Nf6_5_Nc3_5___e6.png"
+            }
+        ],
+        "Dragon": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c5",
+                "image": "1_e4_1___c5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___c5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...cxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4.png"
+            },
+            {
+                "move": "4.Nxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4.png"
+            },
+            {
+                "move": "4...g6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___g6.png"
+            }
+        ],
+        "Maroczy's System": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c5",
+                "image": "1_e4_1___c5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___c5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.d4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4.png"
+            },
+            {
+                "move": "3...cxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4.png"
+            },
+            {
+                "move": "4.Nxd4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4.png"
+            },
+            {
+                "move": "4...g6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___g6.png"
+            },
+            {
+                "move": "5.c4",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_d4_3___cxd4_4_Nxd4_4___g6_5_c4.png"
+            }
+        ],
+        "Rossolimo": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c5",
+                "image": "1_e4_1___c5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___c5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.Bb5",
+                "image": "1_e4_1___c5_2_Nf3_2___Nc6_3_Bb5.png"
+            }
+        ]
+    },
+    "English Opening": {
+        "Main Line": [
+            {
+                "move": "1.c4",
+                "image": "1_c4.png"
+            }
+        ]
+    },
+    "French Defense": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e6",
+                "image": "1_e4_1___e6.png"
+            }
+        ]
+    },
+    "Caro-Kann Defense": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c6",
+                "image": "1_e4_1___c6.png"
+            }
+        ],
+        "Advance Variation": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...c6",
+                "image": "1_e4_1___c6.png"
+            },
+            {
+                "move": "2.d4",
+                "image": "1_e4_1___c6_2_d4.png"
+            },
+            {
+                "move": "2...d5",
+                "image": "1_e4_1___c6_2_d4_2___d5.png"
+            },
+            {
+                "move": "3.e5",
+                "image": "1_e4_1___c6_2_d4_2___d5_3_e5.png"
+            }
+        ]
+    },
+    "Italian Game": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.Bc4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4.png"
+            }
+        ]
+    },
+    "Petrov Defense": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nf6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nf6.png"
+            }
+        ]
+    },
+    "Scandinavian Defense": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...d5",
+                "image": "1_e4_1___d5.png"
+            }
+        ]
+    },
+    "Alekhine's Defense": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_e4_1___Nf6.png"
+            }
+        ]
+    },
+    "Benko Gambit": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___Nf6_2_c4.png"
+            },
+            {
+                "move": "2...c5",
+                "image": "1_d4_1___Nf6_2_c4_2___c5.png"
+            },
+            {
+                "move": "3.d5",
+                "image": "1_d4_1___Nf6_2_c4_2___c5_3_d5.png"
+            },
+            {
+                "move": "3...b5",
+                "image": "1_d4_1___Nf6_2_c4_2___c5_3_d5_3___b5.png"
+            }
+        ]
+    },
+    "Queen's Gambit": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...d5",
+                "image": "1_d4_1___d5.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___d5_2_c4.png"
+            }
+        ],
+        "Tchigorin Defense": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...d5",
+                "image": "1_d4_1___d5.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___d5_2_c4.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_d4_1___d5_2_c4_2___Nc6.png"
+            }
+        ],
+        "Slav Defense": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...d5",
+                "image": "1_d4_1___d5.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___d5_2_c4.png"
+            },
+            {
+                "move": "2...c6",
+                "image": "1_d4_1___d5_2_c4_2___c6.png"
+            }
+        ]
+    },
+    "Dutch Defense": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...f5",
+                "image": "1_d4_1___f5.png"
+            }
+        ]
+    },
+    "King's Gambit": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.f4",
+                "image": "1_e4_1___e5_2_f4.png"
+            }
+        ]
+    },
+    "London System": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...d5",
+                "image": "1_d4_1___d5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_d4_1___d5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nf6",
+                "image": "1_d4_1___d5_2_Nf3_2___Nf6.png"
+            },
+            {
+                "move": "3.Bf4",
+                "image": "1_d4_1___d5_2_Nf3_2___Nf6_3_Bf4.png"
+            }
+        ]
+    },
+    "Four Knights Game": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.Nc3",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Nc3.png"
+            },
+            {
+                "move": "3...Nf6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Nc3_3___Nf6.png"
+            }
+        ]
+    },
+    "Grünfeld Defense": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___Nf6_2_c4.png"
+            },
+            {
+                "move": "2...g6",
+                "image": "1_d4_1___Nf6_2_c4_2___g6.png"
+            },
+            {
+                "move": "3.Nc3",
+                "image": "1_d4_1___Nf6_2_c4_2___g6_3_Nc3.png"
+            },
+            {
+                "move": "3...d5",
+                "image": "1_d4_1___Nf6_2_c4_2___g6_3_Nc3_3___d5.png"
+            }
+        ]
+    },
+    "King's Indian Defense": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___Nf6_2_c4.png"
+            },
+            {
+                "move": "2...g6",
+                "image": "1_d4_1___Nf6_2_c4_2___g6.png"
+            },
+            {
+                "move": "3.Nc3",
+                "image": "1_d4_1___Nf6_2_c4_2___g6_3_Nc3.png"
+            },
+            {
+                "move": "3...Bg7",
+                "image": "1_d4_1___Nf6_2_c4_2___g6_3_Nc3_3___Bg7.png"
+            }
+        ]
+    },
+    "Nimzo-Indian Defense": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___Nf6_2_c4.png"
+            },
+            {
+                "move": "2...e6",
+                "image": "1_d4_1___Nf6_2_c4_2___e6.png"
+            },
+            {
+                "move": "3.Nc3",
+                "image": "1_d4_1___Nf6_2_c4_2___e6_3_Nc3.png"
+            },
+            {
+                "move": "3...Bb4",
+                "image": "1_d4_1___Nf6_2_c4_2___e6_3_Nc3_3___Bb4.png"
+            }
+        ]
+    },
+    "Réti Opening (Classical)": {
+        "Main Line": [
+            {
+                "move": "1.Nf3",
+                "image": "1_Nf3.png"
+            },
+            {
+                "move": "1...d5",
+                "image": "1_Nf3_1___d5.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_Nf3_1___d5_2_c4.png"
+            }
+        ]
+    },
+    "Réti Opening (Modern)": {
+        "Main Line": [
+            {
+                "move": "1.Nf3",
+                "image": "1_Nf3.png"
+            },
+            {
+                "move": "1...d5",
+                "image": "1_Nf3_1___d5.png"
+            },
+            {
+                "move": "2.g3",
+                "image": "1_Nf3_1___d5_2_g3.png"
+            }
+        ]
+    },
+    "Philidor Defense": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...d6",
+                "image": "1_e4_1___e5_2_Nf3_2___d6.png"
+            }
+        ]
+    },
+    "West Indian Defense": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___Nf6_2_c4.png"
+            },
+            {
+                "move": "2...e6",
+                "image": "1_d4_1___Nf6_2_c4_2___e6.png"
+            },
+            {
+                "move": "3.Nf3",
+                "image": "1_d4_1___Nf6_2_c4_2___e6_3_Nf3.png"
+            },
+            {
+                "move": "3...b6",
+                "image": "1_d4_1___Nf6_2_c4_2___e6_3_Nf3_3___b6.png"
+            }
+        ]
+    },
+    "Old Indian Defense": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___Nf6_2_c4.png"
+            },
+            {
+                "move": "2...d6",
+                "image": "1_d4_1___Nf6_2_c4_2___d6.png"
+            }
+        ]
+    },
+    "Trompowsky Attack": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.Bg5",
+                "image": "1_d4_1___Nf6_2_Bg5.png"
+            }
+        ]
+    },
+    "Bird's Opening": {
+        "Main Line": [
+            {
+                "move": "1.f4",
+                "image": "1_f4.png"
+            }
+        ]
+    },
+    "Catalan Opening": {
+        "Main Line": [
+            {
+                "move": "1.d4",
+                "image": "1_d4.png"
+            },
+            {
+                "move": "1...Nf6",
+                "image": "1_d4_1___Nf6.png"
+            },
+            {
+                "move": "2.c4",
+                "image": "1_d4_1___Nf6_2_c4.png"
+            },
+            {
+                "move": "2...e6",
+                "image": "1_d4_1___Nf6_2_c4_2___e6.png"
+            },
+            {
+                "move": "3.g3",
+                "image": "1_d4_1___Nf6_2_c4_2___e6_3_g3.png"
+            }
+        ]
+    },
+    "Alapin Opening": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Ne2",
+                "image": "1_e4_1___e5_2_Ne2.png"
+            }
+        ]
+    }
+}
