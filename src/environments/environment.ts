@@ -3,7 +3,7 @@ export const environment = {
     apiBaseUrl: 'https://localhost:7224/api',
     routes: {
         games: '/Games',
-        winrates: '/Winrates',
+        winrates: '/winrates',
         averageMoves: '/get-average-moves',
     },
 };
