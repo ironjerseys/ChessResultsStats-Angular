@@ -4,7 +4,7 @@
 
 Chess Results Stats - Angular is the frontend for
 
--   ChessResultStats-CSharp https://github.com/jorisreynes/ChessResultStats-CSharp
+-   ChessResultStats-CSharp https://github.com/ironjerseys/ChessResultStats-CSharp
 
 It is build with Angular 17 and TypeScript 5.4.3
 
@@ -18,7 +18,7 @@ You can see the results in the charts
 
 ## How to install it :
 
--   Git clone https://github.com/jorisreynes/ChessResultsStats-Angular.git
+-   Git clone https://github.com/ironjerseys/ChessResultsStats-Angular.git
 -   cd ChessResultsStats-Angular
 
 ```
