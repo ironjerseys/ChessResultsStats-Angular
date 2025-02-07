@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Chess Traps Viewer</h2>
+  
+    <!-- Sélection de l'ouverture -->
+    <label for="opening">Choose an trap:</label>
+    <select id="opening" [(ngModel)]="selectedTrap" (change)="updateMoves()">
+        <option value="">Select...</option>
+        <!-- keyvalue pipe -->
+        <option *ngFor="let trap of traps | keyvalue" [value]="trap.key">
+          {{ trap.key }}
+        </option>
+      </select>
+      
+  
+    <!-- Sélection de la variation -->
+    <label for="variation">Choose a variation:</label>
+    <select 
+    id="variation" 
+    [(ngModel)]="selectedVariation" 
+    (change)="updateMoves()" 
+    [disabled]="!selectedTrap">
+    <option value="">Select...</option>
+    <option 
+        *ngFor="let variation of traps[selectedTrap] | keyvalue" 
+        [value]="variation.key">
+        {{ variation.key }}
+    </option>
+    </select>
+
+  
+    <!-- Affichage de l'échiquier -->
+    <div class="board-container">
+      <img [src]="currentImage" alt="Chess Board" class="chess-board">
+    </div>
+  
+    <!-- Boutons de navigation -->
+    <div class="button-container">
+      <button (click)="previousMove()" [disabled]="currentMoveIndex === 0">Previous</button>
+      <button (click)="nextMove()" [disabled]="currentMoveIndex >= moves.length - 1">Next</button>
+    </div>
+  
+    <!-- Affichage des coups joués -->
+    <div *ngIf="moves.length > 0" class="moves-display">
+      <strong>Moves:</strong> {{ movesSoFar }}
+
+    </div>
+  </div>
+  

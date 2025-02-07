@@ -1,0 +1,66 @@
+{
+    "Legal's Mate": {
+        "Main Line": [
+            {
+                "move": "1.e4",
+                "image": "1_e4.png"
+            },
+            {
+                "move": "1...e5",
+                "image": "1_e4_1___e5.png"
+            },
+            {
+                "move": "2.Nf3",
+                "image": "1_e4_1___e5_2_Nf3.png"
+            },
+            {
+                "move": "2...Nc6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6.png"
+            },
+            {
+                "move": "3.Bc4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4.png"
+            },
+            {
+                "move": "3...d6",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6.png"
+            },
+            {
+                "move": "4.Nc3",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3.png"
+            },
+            {
+                "move": "4...Bg4",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4.png"
+            },
+            {
+                "move": "5.h3",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4_5_h3.png"
+            },
+            {
+                "move": "5...Bh5",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4_5_h3_5___Bh5.png"
+            },
+            {
+                "move": "6.Nxe5",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4_5_h3_5___Bh5_6_Nxe5.png"
+            },
+            {
+                "move": "6...Bxd1",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4_5_h3_5___Bh5_6_Nxe5_6___Bxd1.png"
+            },
+            {
+                "move": "7.Bxf7+",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4_5_h3_5___Bh5_6_Nxe5_6___Bxd1_7_Bxf7+.png"
+            },
+            {
+                "move": "7...Ke7",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4_5_h3_5___Bh5_6_Nxe5_6___Bxd1_7_Bxf7+_7___Ke7.png"
+            },
+            {
+                "move": "7.Nd5#",
+                "image": "1_e4_1___e5_2_Nf3_2___Nc6_3_Bc4_3___d6_4_Nc3_4___Bg4_5_h3_5___Bh5_6_Nxe5_6___Bxd1_7_Bxf7+_7___Ke7_7_Nd5_mate.png"
+            }
+        ]
+    }
+}
