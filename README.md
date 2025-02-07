@@ -4,7 +4,7 @@
 
 Chess Results Stats - Angular is the frontend for
 
--   ChessResultAnalyzerJava https://github.com/jorisreynes/ChessResultAnalyzerJava
+-   ChessResultStats-CSharp https://github.com/jorisreynes/ChessResultStats-CSharp
 
 It is build with Angular 17 and TypeScript 5.4.3
 
@@ -13,8 +13,6 @@ You can see it here on Azure : https://chessresultsstats.com/
 ## How it works
 
 This website calls an API from Chess.com to collect data from the wanted username
-
-The results are saved in database to visualize it when you want
 
 You can see the results in the charts
 
