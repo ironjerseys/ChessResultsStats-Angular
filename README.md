@@ -4,7 +4,7 @@
 
 Chess Results Stats - Angular is the frontend for
 
--   ChessResultStats-CSharp https://github.com/ironjerseys/ChessResultStats-CSharp
+-   ChessResultStats-CSharp https://github.com/ironjerseys/ChessResultsStats-CSharp
 
 It is build with Angular 17 and TypeScript 5.4.3
 
